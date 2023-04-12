@@ -1,0 +1,417 @@
+\documentclass[a4paper, 11pt]{book}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{lipsum} %This package just generates Lorem Ipsum filler text. 
+\usepackage{fullpage} % changes the margin
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+
+%\usepackage{tgadventor} % The font for the entire document can be changed here
+%\usepackage{courier}
+%\usepackage{charter}
+\usepackage{tgcursor}
+
+\usepackage{mathrsfs} 
+\usepackage{quiver} 
+\newtheorem{corollary}{Corollary}
+\usepackage{graphicx}
+\usepackage{tikz}
+
+\usetikzlibrary{arrows}
+\usepackage{verbatim}
+\usepackage[numbered]{mcode}
+\usepackage{float}
+\usepackage{tikz}
+    \usetikzlibrary{shapes,arrows}
+    \usetikzlibrary{arrows,calc,positioning}
+
+    \tikzset{
+        block/.style = {draw, rectangle,
+            minimum height=1cm,
+            minimum width=1.5cm},
+        input/.style = {coordinate,node distance=1cm},
+        output/.style = {coordinate,node distance=4cm},
+        arrow/.style={draw, -latex,node distance=2cm},
+        pinstyle/.style = {pin edge={latex-, black,node distance=2cm}},
+        sum/.style = {draw, circle, node distance=1cm},
+    }
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\usepackage{amsmath,amsfonts,amsthm, amssymb}
+\usepackage{array}
+\usepackage[all,textures]{xy}
+\usepackage{graphicx}
+\usepackage{alltt}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{tabu}
+\usepackage{longtable}
+
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Proposition}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+
+\newtheorem{question}[theorem]{Question}
+\newtheorem{exercise}{Exercise}[chapter]
+\newtheorem{problem}[theorem]{Problem}
+    
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+
+% Define solution environment
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Original packages, custom environments, and custom commands below
+  \usepackage{amsmath,amsfonts,amsthm, amssymb}
+  \usepackage{fullpage}
+  \usepackage{array}
+  \usepackage[all,textures]{xy}
+  \usepackage{graphicx}
+  \usepackage{alltt}
+  \usepackage{listings}
+  \usepackage{float}
+  \usepackage{tabu}
+  \usepackage{longtable}
+  \usepackage{lipsum}
+  \usepackage[T1]{fontenc}
+  
+  \theoremstyle{plain}
+  \newtheorem{innercustomgeneric}{\customgenericname}
+\providecommand{\customgenericname}{}
+\newcommand{\newcustomtheorem}[2]{%
+  \newenvironment{#1}[1]
+  {%
+   \renewcommand\customgenericname{#2}%
+   \renewcommand\theinnercustomgeneric{##1}%
+   \innercustomgeneric
+  }
+  {\endinnercustomgeneric}
+}
+
+\newcustomtheorem{definition}{Definition}
+\newcustomtheorem{lemma}{Lemma}
+
+\newcommand{\mb}{\mathbf}
+\newcommand{\arr}{\rightarrow}
+\newcommand{\mc}{\mathcal}
+\newcommand{\ms}{\mathscr}
+\newcommand{\co}{\text{co}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\op}{\oplus}
+\newcommand{\od}{\odot}
+\newcommand{\p}{\prime}
+\newcommand{\ep}{\epsilon}
+\newcommand{\hyp}{{}^*}
+\newcommand{\dom}{\text{dom }}
+
+  \setlength{\parindent}{0pt}
+ 
+ 
+ \newtheorem{thm}{Exercise}
+\begin{document}
+  \begin{titlepage}
+	\centering % Center everything on the title page
+	\scshape % Use small caps for all text on the title page
+	\vspace*{1.5\baselineskip} % White space at the top of the page
+% ===================
+%	Title Section 	
+% ===================
+
+	\rule{13cm}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt} % Thick horizontal rule
+	\rule{13cm}{0.4pt} % Thin horizontal rule
+	
+		\vspace{0.75\baselineskip} % Whitespace above the title
+% ========== Title ===============	
+	{	\Huge Lectures on Hyperreals\\ 
+			\vspace{4mm}
+		Book by Robert Goldblatt \\	}
+% ======================================
+		\vspace{0.75\baselineskip} % Whitespace below the title
+	\rule{13cm}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt} % Thin horizontal rule
+	\rule{13cm}{1.6pt} % Thick horizontal rule
+	
+		\vspace{1.75\baselineskip} % Whitespace after the title block
+% =================
+%	Information	
+% =================
+	{\large : 
+		\vspace*{1.2\baselineskip}
+	} \\
+	\vfill
+
+\end{titlepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begingroup
+\let\cleardoublepage\clearpage
+\tableofcontents
+\endgroup
+
+\chapter{What are Hypereals?}
+
+\newpage
+
+\chapter{Large sets}
+
+  \begin{exercise}
+    If $\emptyset \not = A \subseteq I$, there is an ultrafilter $\mc{F}$ on $I$ with $A \in \mc{F}$.
+  \end{exercise}
+  \begin{proof}
+    Define $\mc{H}=\{B \in \mathscr{P}(I): A \subseteq B\}$. Since $A$ is non empty, it follows that $\mc{H}$ has fip. Clearly, $A \in \mc{H}$, and so $A \in \mc{F}^\mc{H}$. Therefore, by zorn lemma, we know that there exists ultrafilter, $\mc{F}$, such that $A \in \mc{F}^\mc{H} \subseteq \mc{F}$.
+  \end{proof}
+
+  \begin{exercise}
+    There exists a nonprincipal ultrafilter on $\N$ containing the set of even numbers, and another containing the set of odd numbers.
+  \end{exercise}
+  \begin{proof}
+    Define $I=\{x \in \N: x=2n$ for some $n \in \N\}$. Since $I$ is infinite, we know that $\mc{F}^\co$ is proper and thus, have fip. Applying the zorn's lemma, we see that there exists ultrafilter $\mc{F}$ such that $\mc{F} \subseteq \mc{F}^\co$. However, for any $i \in I$, we have $I-\{i\} \in \mc{F}^\co \subseteq \mc{F}$ but, since $\mc{F}$ is ultrafilter, $\{i\} \in \mc{F}$. However, clearly $\{i\} \in \mc{F}^i$. Therefore, $F \not = F^i$ for any $i \in I$. Likewise we could argue about set of odd numbers.
+  \end{proof}
+
+  \begin{exercise}
+    An ultrafilter on finite set must be principal.
+  \end{exercise}
+  \begin{proof}
+    Let the set be $A=\{a_1,a_2,\cdots, a_n\}$ and $\mc{F}$ be ultrafilter on it. Since $\{a_1\} \cup \{a_2\}\cup \cdots \cup \{a_n\}=A \in \mc{F}$, it must be the case that $a_i \in \mc{F}$ for some $i$ such that $1 \leq i \leq n$. Since $\mc{F}$ is proper, for any $B \in \mc{F}$, we have $B \cap \{a_i\} \not = \emptyset$, but that means $\mc{F}=\mc{F}^{a_i}$.
+  \end{proof}
+
+  \begin{exercise}
+    For $\mc{H} \subseteq \ms{P}(I)$. \\
+      (i) Show that $\mc{F}^\mc{H}$ is a filter that includes $\mc{H}$, i.e. $\mc{H} \subseteq \mc{F}^\mc{H}$. \\
+      (ii) Show that $\mc{F}^\mc{H}$ is included in any other filter that includes $\mc{H}$.
+  \end{exercise}
+  \begin{proof} $ $ \\
+    (i) By the definition.\\
+    (ii) Let $\mc{F}$ be a filter such that $H \subseteq \mc{F}$. Let $A \in \mc{F}^\mc{H}$, then $B_1 \cap B_2 \cap \cdots \cap B_n \subseteq A$ for some $B_1,\cdots, B_n \in \mc{H}$. Clearly, $B_1 \cap \cdots \cap B_n \in F$ and so is $A \in F$.
+  \end{proof}
+
+  \begin{exercise}
+    Let $\mc{F}$ be a proper filter on $I$. \\
+    (I) Show that $\mc{F} \cup \{A^c\}$ has fip iff $A \notin \mc{F}$. \\
+    (II) Use (I) to deduce that $\mc{F}$ is an ultrafilter iff it is maximal proper filter on $I$.
+  \end{exercise}
+  \begin{proof} $ $ \\
+    (I) First we prove forward implication. Notice that if $A \in \mc{F}$ then since $A \cap A^c=\emptyset$, it follows $\mc{F} \cup \{A^c\}$ does not have fip. \\
+    We prove the converse implication. Notice that since $F$ is a proper filter, ie it does not contain $\emptyset$, the only way for $\mc{F} \cup \{A^c\}$ to not have fip would be $A \in \mc{F}$. \\\\
+
+    (II) We prove the foward implication. Suppose $\mc{F}$ is an ultrafilter. Applying Zorn's lemma on proper filter $\mc{F}$, we see that there exists a maximal proper filter, $K$, such that $\mc{F} \subseteq K$. If $K \not = F$, it would mean there is some $A \in K$ such that $A \not \in \mc{F}$ but then that would mean $A^C \in \mc{F}$, and so $A^c \in K$ which contradicts the fact that $K$ is proper since it fails to satisfy fip. Therefore, we must have $F=K$. \\
+
+    We prove the converse implication. Suppose $\mc{F}$ is maximal proper filter. For the sake of contradiction assume $\mc{F}$ is not an ultra filter i.e. there exists some $A \in \ms{P}(I)$ such that both $A, A^c \notin F$. Clearly, either $\mc{F} \cup \{A\}$ has fip or $\mc{F} \cup \{A^c\}$ does. Wlog assume $\mc{F} \cup \{A\}$ has fip. Applying Zorn's lemma on $\mc{F} \cup \{A\}$, we see that there is maximal proper filter $K$ such that $\mc{F} \cup \{A\} \subseteq K$. However this means that $\mc{F}$ is not maximal proper filter since $F \subsetneqq F \cup \{A\} \subset P(I)$.
+  \end{proof}
+
+\chapter{Ultrapower Construction of the hyperreals}
+
+  \begin{exercise}
+    (section 3.3, I). $\equiv$ is an equivalence relation on $\R^\N$.
+  \end{exercise}
+  \begin{proof} Let $\langle a_n \rangle, \langle b_n \rangle, \langle c_n \rangle \in \R^\N$.
+    First we prove that reflexivity. Clearly, $\{n \in \N: a_n=a_n\}=\N \in \mc{F}^\co \subseteq \mc{F}$. Thus, $\langle a_n \rangle \equiv \langle a_n \rangle$. \\
+    Symmetricity is trivial since $\{n \in \N: a_n=b_n\}=\{n \in \N: b_n=a_n\}$, if one of them is in $F$ then so is the other. \\
+    Finally, we prove transitivity. Suppose $\la a_n \ra \equiv \la b_n \ra$ and $\la b_n \ra \equiv \la c_n \ra$ i.e. $\{n \in \N: a_n=b_n\}, \{n \in \N: b_n=c_n\} \in \mc{F}$. Clearly, $\{n \in \N: a_n=b_n=c_n\}=\{n \in \N: a_n=b_n\} \cap \{n \in \N: b_n=c_n\} \in \mc{F}$. Therefore, $\la a_n \ra \equiv \la c_n \ra$.
+  \end{proof}
+  \begin{exercise} (section 3.3, II)
+    $\equiv$ is a congruence on the ring $\la \R^\N, \op, \od \ra$, which means that if $r \equiv r^\p$ and $s \equiv s^\p$, then $r \op s=r^\p \op s^\p$ and $r \od s=r^\p \od s^\p$.
+  \end{exercise}
+  \begin{proof}
+    Suppose $r \equiv r^{\p}$ and $s \equiv s^{\p}$ i.e. $ \{n \in \N: r_n=r^\p_n \}, \{n \in \N: s_n=s_n^\p \} \in \mc{F}$. Thus, since $ \{n \in \N: r_n=r_n^\p, s_n=s_n^\p \}=\{n \in \N: r_n=r_n^\p \} \cap \{n \in \N: s_n=s_n^\p \} \in \mc{F}$, we have $\{n \in \N: r_n=r_n^\p, s_n=s_n^\p \} \subseteq \{n \in \N: r_n+s_n=r_n^\p+s_n^\p \} \in \mc{F}$. Similarly, $\{n \in \N: r_ns_n=r_n^\p s_n^\p \} \in \mc{F}$. Therefore, $r\op s \equiv r^\p \op s^\p$ and $r \od s \equiv r^\p \od s^\p$.
+  \end{proof}
+  \begin{exercise} (section 3.3, III)
+    $\la 1, \frac{1}{2}, \frac{1}{3}, \cdots \ra \not \equiv \la 0, 0, 0, \cdots \ra$. 
+  \end{exercise}
+  \begin{proof}
+    Let $\la r \ra=\la 1, \frac{1}{2}, \frac{1}{3}, \cdots \ra$. For the sake of simplicity, define $[[r \not =0]]=\{n \in \N:r_n \not =0\}$. Clearly, $[[r \not =0]] \subseteq \N$. Notice that for any $n \in \N$, we have $n \in [[r \not =0]]$. Thus, $[[r \not =0]]=\N$. So, $[[r \not =0]] \in \mc{F}^\co \subseteq \mc{F}$ but then it would mean $[[r=0]]=[[r \not=0]]^c \notin \mc{F}$. Therefore, $\la r_n \ra \not \equiv \la 0 \ra$.
+  \end{proof}
+
+  \begin{exercise}
+    (section 3.5, I)
+    $[[r=s]] \cap [[s=t]] \subseteq [[r=t]]$.
+  \end{exercise}
+  \begin{proof}
+    Let $n \in [[r=s]] \cap [[s=t]]$. Then it follows that $r_n=s_n$ and $s_n=t_n$, and so $r_n=t_n$. Therefore, $n \in [[s=t]]$.
+  \end{proof}
+
+  \begin{exercise} (Section 3.5, II)
+    $[[r=r^\p]] \cap [[s=s^\p]] \subseteq [[r \op s=r^\p \op s^\p]] \cap [[r \op s=r^\p \op s^\p]]$
+  \end{exercise}
+  \begin{proof}
+    Let $n \in [[r=r^\p]] \cap [[s=s^\p]]$. Thus, $r_n=r_n^\p$ and $s_n=s_n^\p$, and so $r_n \op s_n=r_n^\p \op s_n^\p$ and $r_n \od s_n = r_n^\p \od s_n^\p$. Therefore, $n \in [[r \op s=r^\p \op s^\p]] \cap [[r \op s=r^\p \op s^\p]]$.
+  \end{proof}
+  \begin{exercise}
+    (Section 3.5, III)
+    $[[r=r^\p]] \cap [[s=s^\p]] \cap [[r<s]] \subseteq [[r^\p<s^\p]]$.
+  \end{exercise}
+  \begin{proof}
+    Let $n \in [[r=r^\p]] \cap [[s=s^\p]] \cap [[r<s]]$. Thus, $r_n=r_n^\p, s_n=s_n^\p, r_n<s_n$ but then that means $r_n^\p<s_n^\p$, and so $ n \in [[r^\p<s^\p]]$.
+  \end{proof}
+  \begin{exercise} (Section 3.5, IV)
+    If $r \equiv r^\p$ and $s \equiv s^\p$, then $[[r<s]] \in \mc{F}$ iff $[[r^\p<s^\p]] \in \mc{F}$.
+  \end{exercise}
+  \begin{proof}
+    Suppose $r \equiv r^\p$ and $s \equiv s^\p$, that is to say, $\{n \in \N: r_n=r_n^\p\}, \{n \in \N: s_n=s_n^\p\} \in \mc{F}$. First assume $[[r<s]] \in \mc{F}$. Therefore, $\{n \in \N: r_n=r_n^\p\} \cap \{n \in \N: s_n=s_n^\p\} \cap \{n \in \N: r_n<s_n\} \subseteq \{n \in \N: r^\p<s^\p \} \in mc{F}$. Next assume $[[r^\p<s^p]] \in \mc{F}$. It follows $\{n \in \N: r_n=r_n^\p\} \cap \{n \in \N: s_n=s_n^\p\} \cap \{n \in \N: r_n^\p<s_n^\p\} \subseteq \{n \in \N: r<s\} \in \mc{F}$
+  \end{proof}
+
+  \begin{exercise}
+    (Section 3.8, I)
+    Use only general properties of ordered fields to deduce from the fact that $[\ep]$ is a positive infinitismal, the conclusion that $[\ep]^{-1}$ is greater than every real number.
+  \end{exercise}
+  \begin{proof}
+    Notice that for any $r \in \R^+$, we have ${}^* r=[\la r,r,\cdots,\ra] \in {}^* \R$. Since $\ep<{}^* r$, by fields properties, we have $0<{}^* r^{-1}<\ep^{-1}$. Since $r$ is arbitrary positive real number, setting $r=r^{-1}$,we see that ${}^* r< \ep^{-1}$ for any $r \in \R^+$. 
+  \end{proof}
+  
+  \begin{exercise} (Section 3.10, I)
+    If $A$ is finite, show that ${}^*A=A$, and hence $A$ has non nonstandard members.
+  \end{exercise}
+  \begin{proof}
+    Let $A=\{a_1,\cdots, a_n\}$. Consider some $[r] \in {}^* A$. If we could prove that $r \equiv t$ for some constant sequence $t \in A$, we would be done. So we set that as our goal. Notice that since $[r] \in {}^* A$, we have $\{ n \in \N: r_n \in A\}= \{n \in \N: r_n=a_1 \lor r_n=a_2 \lor \cdots r_n=a_n\}=\{n \in \N: r_n=a_1\} \cup \cdots \cup \{n \in \N:r_n=a_n\} \in \mc{F}$. But since $\mc{F}$ is ultrafilter, only one of such set is in $\mc{F}$. Therefore, $\{n \in \N: r_n=a_k\} \in \mc{F}$ for some $k$ such that $1 \leq k \leq n$. Hence, $r \equiv a_k$.
+  \end{proof}
+
+  \begin{exercise}
+    (Section 3.10, II) 
+    Prove: \\
+    (a) $A \subseteq B$ iff ${}^* A \subseteq {}^* B$. \\
+    (b) $A=B$ iff ${}^* A = {}^* B$.
+  \end{exercise}
+  \begin{proof} $ $ \\
+    (a) First we prove the forward implication. Suppose $A \subseteq B$. Consider $[r] \in {}^* A$. Therefore, we have $[[r \in A]] \in \mc{F}$, but since $[[r \in A]] \subseteq [[r \in B]]$, we have $[[r \in B]]$ and so $[r] \in {}^* B$. \\
+    We prove the converse implication. Suppose ${}^* A \subseteq {}^* B$. Consider some $r \in A$. Then we have $[\mb{r}] \in {}^* A$, and so $[\mb{r}] \in {}^*B$. However, since $[{\mb{r}}] \in B$, we have $[[r \in B]] \in \mc{F}$ which means $r \in B$. \\
+
+    (b) Trivially follows from (a).
+  \end{proof}
+
+  \begin{exercise}
+    (Section 3.10, III) \\
+    Prove: \\
+    (a) ${}^* (A \cup B) = {}^* A \cup {}^* B$, \\
+    (b) ${}^* (A \cap B)= {}^* A \cap {}^* B$, \\
+    (c) $\hyp (A-B)=\hyp A - \hyp B$, \\
+    (d) $\hyp \emptyset =\emptyset$.
+  \end{exercise}
+  \begin{proof} $ $ \\
+    (a) First we prove the foward implication. Since $A \subset A \cup B$, applying (2), we have ${}^* A \subseteq {}^* (A \cup B)$. Similarly, we have ${}^* B \subseteq {}^* (A \cup B)$, and so ${}^* A \cup {}^* B \subseteq {}^* (A \cup B)$. \\
+    We prove the converse implication. Let $[r] \in {}^* A \cup {}^* B$. Then we have following cases; \\
+    \textbf{case-1.} $[r] \in {}^* A$. Thus, $[[r \in A]] \in mc{F}$, and since $[[r \in A]] \subseteq [[r \in A \cup B]]$, we have $[[r \in A \cup B]] \in \mc{F}$ but that means $[r] \in {}^* A \cup {}^* B$. \\
+    \textbf{case-2.} $[r] \in {}^* B$. The proof is analogous to \textbf{case-1}. \\
+
+    (b) First we prove the forward implication. Since $A \cap B \subseteq A$, applying (2), we have ${}^* (A \cap B) \subseteq {}^* A$. Similarly we have $\hyp (A \cap B) \subseteq \hyp B$, and so $\hyp (A \cap B) \subseteq \hyp A \cap \hyp B$. \\
+    We prove the converse implication. Consider some $[r] \in \hyp A \cap \hyp B$. It means that $[r] \in \hyp A$ and $[r] \in \hyp B$, thus $[[r \in A]], [[r \in B]] \in \mc{F}$. Therefore, $[[r \in A \cap B]]=[[r \in A]] \cap [[r \in B]] \in \mc{F}$, and so $[r] \in \hyp (A \cap B)$.  \\
+
+    (c) First we prove the foward implication. Let $[r] \in \hyp (A \setminus B)$. Then we have $[[r \in A]] \cap [[r \notin B]]=[[r \in A \setminus B]] \in \mc{F}$. Thus, $[[r \in A]], [[r \notin B]] \in \mc{F}$. Hence, $[r] \in \hyp A$ and $[r] \notin \hyp B$, and so $[r] \in \hyp A \setminus \hyp B$. \\
+    We prove the converse implication. Let $[r] \in \hyp A \setminus \hyp B$ i.e. $[r] \in \hyp A$ and $[r] \notin \hyp B$. Then we have $[[r \in A]] \in \mc{F}$ and $[[r \notin B]] \in \mc{F}$. Thus, $[[r \in A \setminus B]]=[[r \in A]] \cap [[r \notin B]] \in \mc{F}$. Therefore, $r \in \hyp (A \setminus B)$. \\
+
+    (d) Clearly, $\hyp \emptyset =\{ [r] \in \hyp \R: [[r \in \emptyset]] \in \mc{F}\}=\emptyset$. 
+  \end{proof}
+
+  \begin{exercise}
+    (Section 3.10, IV)
+    Is it true that $\hyp (\bigcup_{n=1}^\infty A_n)=\bigcup_{n=1}^\infty \hyp A_n$?
+  \end{exercise}
+  \begin{proof}
+    No. Define $A_n=\{n\}$ for any $n \in \N$. Notice that since $A_n$ is finite, using (1), we have $\hyp A_n=A_n=\{n\}$. Since $[[\omega \in \bigcup_{n=1}^\infty A_n]]=\N \in \mc{F}$, we have $\omega \in \hyp (\bigcup_{n=1}^\infty A_n)$. However, $[[\omega \in A_n]]=\{n\} \notin \mc{F}$, thus $\omega \notin \hyp A_n$ for any $n \in \N$. This mean $\omega \notin \bigcup_{n=1}^\infty \hyp A_n$.
+  \end{proof}
+
+  \begin{exercise}
+    (Section 3.10, V)
+    Show that if $A \subseteq \R$, then $\hyp A \cap \R =A$.
+  \end{exercise}
+  \begin{proof}
+    Suppose $A \subseteq \R$. Let $[r] \in \hyp A \cap \R$. Since $\la r \ra$ is a constant sequence and $[r] \in \hyp A$, it follows $[r]=\la r \ra \in A$. Thus, $\hyp A \cap \R \subseteq A$. This means that $\hyp A \cap \R$ contains only the constant sequences. Let $\la r \ra \in A$. Then clearly $[r] \in \hyp A \cap \R$.
+  \end{proof}
+
+  \begin{exercise}
+    For $a,b \in \R$, let $[a,b]$ be the closed interval $\{x \in \R: a \leq x \leq n\}$. Prove that $\hyp [a,b]=\{x \in \hyp \R: a \leq x \leq b\}$.
+  \end{exercise}
+  \begin{proof}
+    We first prove the forward inclusion. Let $[r] \in \hyp [a,b]$. Then we have $\{n \in \N: a \leq r_n \leq b\}=[[r \in [a,b]]] \in \mc{F}$ but that means $[r] \in \{x \in \hyp \R: a \leq x \leq b\}$. We prove the converse inclusion. Let $[r] \in \{x \in \hyp \R: a \leq x \leq b\}$. It follows $[[r \in [a,b]]]=\{n \in \N: a \leq r_n \leq b\} \in mc{F}$. Therefore, $[r] \in \{x \in \R: a \leq x \leq n\}$.
+  \end{proof}
+
+  \begin{exercise}
+    (Section 3.10, VII) 
+    $\hyp \Z$ is a subring of $\hyp \R$.
+  \end{exercise}
+  \begin{proof}
+    Clearly, $\hyp \Z \not = \emptyset$. Consider some $[r], [s] \in \hyp \Z$. Then we have $[[r \in \Z]], [[s \in \Z]] \in \mc{F}$. Therefore, since $[[r \in \Z]] \cap [[s \in \Z]] \subseteq [[r+s \in \Z]], [[rs \in \Z]]$, we have $[[r+s \in \Z]], [[rs \in \Z]] \in \mc{F}$. Hence, $[r+s], [rs] \in \hyp \Z$.
+  \end{proof}
+
+  \begin{exercise}
+    (Section 3.10, VIII)
+    If $\R^+=\{x \in \R: x>0\}$, show that $\hyp (\R^+)=\{x \in \hyp \R^+:x>0\}$, i.e., $\hyp (R^+)=(\hyp \R)^+$.
+  \end{exercise}
+  \begin{proof}
+    First we prove the forward inclusion. Let $[r] \in \hyp (R^+)$. It means that $\{n \in \N: r_n>0\}=[[r \in R^+]] \in \mc{F}$ which implies $[r] \in (\hyp \R)^+$. Next we prove the converse inclusion. Let $[r] \in (\hyp \R)^+$. Then we have $\{n \in \N: r_n>0\}=[[r>0]]=[[r \in \R^+]] \in \mc{F}$ from which it follows $[r] \in \hyp(\R^+)$.
+  \end{proof}
+
+  \begin{exercise}
+    (Section 3.12, I)
+    Show that $\hyp f$ agrees with $f$ on $\R$: if $r \in \R$, then $\hyp f(r)=f(r)$.
+  \end{exercise}
+  \begin{proof}
+    Let $r \in \R$. Notice that $r$ can be indetified with the constant sequence $\mb{r} \in \hyp R$. Then we have $\hyp f([\mb{r}])=[f(\mb{r})]$ which is isomorphic to $f(r)$.
+  \end{proof}
+  \begin{exercise}
+    (Section 3.12, II)
+    If $f$ is injective, so is $\hyp f$. What about surjectivity?
+  \end{exercise}
+  \begin{proof}
+    Suppose $f$ is injective. Consider some $[r], [s] \in \hyp \R$ such that $\hyp f([r])=\hyp f([s])$, that is to say $[f \circ r]=[f \circ s]$. Since $f$ is injective, we have $[[f \circ r=f \circ s]] \subseteq [[r =s]]$ but then, since $[[f \circ r=f \circ s]] \in \mc{F}$, it follows $[[r=s]] \in \mc{F}$. Therefore, $[r]=[s]$. \\
+
+    Yes, surjecitivity is preserved. Suppose $f$ is surjective. Consider some $[s] \in \hyp \R$. Our goal is to prove that there is some $[r] \in \hyp \R$ such that $\hyp f([r])=[s]$. Define sequenece $(r_n)$ such that, for each $s_n$, $f(r_n)=s_n$. We know such a $r_n$ exists for each $s_n$ since $f$ is surjective. We claim that $[r] \in \hyp \R$ the element we looking for. To prove this claim, we need to show $[f \circ r]=f([r])=[s]$, so we set that as our goal. Clearly, $[[f \circ r = s]]=\{n \in \N: f(r_n)=s_n\}=\N \in \mc{F}$. Therefore, $[f \circ r]=f[r] = [s]$. 
+  \end{proof}
+
+  \begin{exercise}
+    (Section 3.12, III)
+     For $x \in \hyp \R$, let $$|x| = \begin{cases} x, \text{ if } x>0 \\ 0, \text{ if } x=0 \\ -x \text{ if } x<0 \end{cases}$$ be the usal definition of absolute value function. Show that this extends the definition of $|.|$ on $\R$: $|[r]|=[ \la |r_1|, |r_2|,\cdots \ra]=[|r_n|]$.
+  \end{exercise}
+  \begin{proof}
+    We have the following cases; \\
+    \textbf{Case-1.} Suppose $[r]>0$. Then $[[r>0]] \in \mc{F}$. Since $[[r>0]] \subseteq [[ [r]=[|r|]]] \in \mc{F}$, we have $|[r]|=[r]=[|r_n|]$. \\
+    \textbf{Case-2.} Suppose $[r]=0$. That is to say $[[r=0]] \in \mc{F}$. Since $[[r=0]] \subseteq [[0=|r|]] \in \mc{F}$, we have $|[r]|=0=[|r|]$. \\
+    \textbf{Case-3.} Suppose $[r]<0$. Then $| [r]|=-[r]=[-r]=[|r|]$.
+  \end{proof}
+
+  \begin{exercise}
+    (Section 3.12, IV)
+    Let $\chi_A$ be the characteristic function of a set $A \subseteq \R$. Show that $\hyp (\chi_A)=\chi_{\hyp A}$.
+  \end{exercise}
+  \begin{proof}
+    Let $[r] \in \hyp \R$. Consider the expression $\hyp (\chi_A)[r]$, we have the following cases; \\
+    \textbf{Case-1.} Suppose $[r] \in \hyp A$. Notice that $\hyp (\chi_A)[r]=[\chi_A \circ r]=[\chi_A(r_n)]$ but then, since $[[r \in A]] \in \mc{F}$ and $[[r \in A]] \subseteq [[\chi_A \circ r=1]]$, we have $[[\chi_A \circ r=1]] \in \mc{F}$. Therefore, $[\chi_A \circ r]=\chi_A [r]=1$. \\
+    \textbf{Case-2.} Suppose $[r] \notin \hyp A$. Then we have $[[r \notin A]]=[[r \in A]]^c \in \mc{F}$. Clearly, $[[r \notin A]] \subseteq [[\chi_A \circ r=0]]$. Thus, $[[\chi_A \circ r=0]] \in \mc{F}$ and so $[\chi_A \circ r]=\chi_A [r]=0$.
+  \end{proof}
+  \begin{exercise}
+    (Section 3.12, V)
+    Show how to define $\hyp f$ when $f$ is a function of more than one arguement.
+  \end{exercise}
+  \begin{proof}
+    Define $\hyp f([r^1],\cdots,[r^n])=[f(r^1_1, \cdots, r^n_1),f(r^1_2,\cdots, r^n_2), \cdots]$. We prove that it's well defined. Clearly, $[[r^1=r^{1^\p}]] \cap \cdots [[r^n=r^{n^\p}]] \subseteq [[f \circ (r^1,\cdots, r^n)=f \circ (r^{1^\p}, \cdots, r^{n^\p})]]$. Therefore, $r^1 \equiv r^{1^\p}, \cdots, r^n \equiv r^{n^\p}$ implies $f \circ (r^1,\cdots, r^n) \equiv f \circ (r^{1^\p}, \cdots, r^{n^\p}$.
+  \end{proof}
+
+  \begin{exercise}
+    (Section 3.15, I)
+    If $A_1,\cdots, A_k$ are subsets of $\R$, put $P=A_1\times \cdots \times A_k$ and apply the definition of $\hyp P$ to show that $$ \hyp (A_1 \times \cdots \times A_k)=\hyp A_1 \times \cdots \times \hyp A_k.$$
+  \end{exercise}
+  \begin{proof}
+    For $([r^1], [r^2], \cdots, [r^k]) \in \hyp P$, we must have $[[(r^1, r^2, \cdots, r^k) \in P]] \in \mc{F}$. Clearly, $[[(r^1, r^2, \cdots, r^k) \in P]] \subseteq [[r^n \in A_n]]$, thus $[[r^n \in A_n]]$ for any $n$ such that $1 \leq n \leq k$. This means that $[r^n] \in A^n$ for all such $n$. Hence, $([r^1], \cdots, [r^n]) \in \hyp A_1 \times \cdots \hyp A_n$. From this, it follows that $\hyp (\R^k)=(\hyp \R)^k$.
+  \end{proof}
+
+  \begin{exercise}
+    (Section 3.15, II)
+    Let $\dom P$ denote the domain of a binary relation. If $P \subseteq \R^2$, show that $\hyp (\dom P)= \dom \hyp P$.
+  \end{exercise}
+  \begin{proof}
+    First we prove the forward inclusion. Let $[r] \in \hyp (\dom P)$. Then we have $\{n \in \N: r_n \in \dom P\}=[[r \in \dom P]] \in \mc{F}$. $$\text{ Define sequence } s_n = \begin{cases} s \text{ such that } (r_n, s) \in P, \text{ if } r_n \in \dom P \\ 0, \text{ if } r_n \notin \dom P \end{cases}$$ Then clearly, $[[(r,s) \in P]]=[[r \in \dom P]] \in \mc{F}$, but that means $([r], [s]) \in \hyp P$, and so $[r] \in \dom \hyp P$. \\
+    Now we prove the converse inclusion. Let $[r] \in \dom \hyp P$. It follows that there exists $[s] \in \hyp \R$ such that $([r], [s]) \in \hyp P$, but that means $[[r \in \dom P]]=[[(r,s) \in P]] \in \mc{F}$. Hence, $[r] \in \hyp (\dom P)$.
+  \end{proof}
+
+\chapter{The Transfer Principle}
+
+  \begin{exercise}
+    
+  \end{exercise}
+
+
+
+\end{document}
+
