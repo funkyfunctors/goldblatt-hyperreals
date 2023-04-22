@@ -99,15 +99,20 @@
 \newcommand{\co}{\text{co}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\la}{\langle}
 \newcommand{\ra}{\rangle}
 \newcommand{\op}{\oplus}
 \newcommand{\od}{\odot}
 \newcommand{\p}{\prime}
-\newcommand{\ep}{\epsilon}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\del}{\delta}
 \newcommand{\hyp}{{}^*}
 \newcommand{\dom}{\text{dom }}
+\newcommand{\hal}{\text{hal}}
+\newcommand{\gal}{\text{gal}}
+\newcommand{\sh}{\text{sh}}
 
   \setlength{\parindent}{0pt}
  
@@ -408,10 +413,113 @@
 \chapter{The Transfer Principle}
 
   \begin{exercise}
-    
+    (Section 4.1, I)
+    Verify the truth the $*-$transform given in $1-5$ above, which are; \\
+    (1) The Eudoxus-Archimedes Principle: $\forall x \in \hyp \R: \exists m \in \hyp \N (x<m)$.  \\
+    (2) Density of the rationals: $\forall x, y \in \hyp \R (x<y \text{ implies } \exists q \in \hyp \Q (x<q<y))$. \\
+    (3) Finiteness. Let $A=\{r_1,\cdots, r_k\}$ be a finite subset of $\R$. Then $\forall x \in \hyp A (x=\hyp r_1 \lor x=\hyp r_2 \lor \cdots x=\hyp r_k)$. \\
+    (4) Finitary set operations. $\forall x \in \hyp \R (x \in \hyp (A \cup B))$ iff $x \in \hyp A$ or $x \in \hyp B$. \\
+    (5) Discreteness of $\N$.  $\forall x \in \hyp \N (\hyp n \leq x \leq \hyp (n+1) \text{ implies } x= \hyp n \text{ or } x=\hyp (n+1)$.
   \end{exercise}
+  \begin{proof} $ $ \\
 
+    (1) Let $x \in \hyp \R$. Define sequence $m$ such that $x_i<m_i$ for every $i$. The existence of such $m$ is guranteed by Eudoxus-Archimedes Principle in reals. Clearly, $m \in \hyp \N$ and $[[x<m]] \in \mc{F}$. Therefore, $x<m$. 
 
+    (2) Let $x,y \in \hyp \R$. Define sequence $q$ such that $x_i<q_i<y_i$ for each $i$, where $q_i$'s are rational. The existence of such $q_i$'s is guranteed by density of rationals in reals. Clearly, $q \in \hyp \Q$ and $[[x<q<y]]=\N \in \mc{F}$. Therefore, $x<q<y$. 
+
+    (3) Let $x \in \hyp A$. Then $[[x=r_1]] \cup [[x=r_2]]\cup \cdots [[x=r_n]]=[[x \in A]] \in \mc{F}$. Since finite union in $\mc{F}$ means that exactly one of the set in $\mc{F}$, we have $x=\hyp r_1$ or $x=\hyp r_2$ or $\cdots$ or $x=\hyp r_n$.
+
+    (4) Proved in section 3.10, II.
+
+    (5) Let $x \in \hyp \N$ and suppose $\hyp n \leq x \leq \hyp (n+1)$. Then we have $[[n \leq x \leq n+1]] \in \mc{F}$ but due to discreteness of $\N$, it folows that $[[x=n]] \cup [[x=n+1]]=[[x=n \lor x=n+1]]=[[n \leq x \leq n+1]] \in \mc{F}$. Hence, $x=\hyp n$ or $x=\hyp(n+1)$.
+  \end{proof}
+
+\chapter{Hypereals Great and Small}
+
+  \begin{exercise}
+    (Section  5.2, I)
+    For any positive hyperreal $a$, explain why the function $x \rightarrow a^x$ is defined for all $x \in \hyp \R$. Use transfer to explore its properties.
+  \end{exercise}
+  \begin{proof}
+    
+  \end{proof}
+
+  \begin{exercise}
+    (Section 5.5, I)
+    Verify that $\simeq$ and $\sim$ are equivalence relationships.
+  \end{exercise}
+  \begin{proof}
+    We will first argue about $\simeq$. Let $x,y,z \in \hyp \R$. Clearly, it's reflexive since $x-x=0$. If $x \simeq y$ then we have $x-y= \epsilon$, thus $y-x=-\epsilon$, and so $y \simeq x$. If $x \simeq y$ and $y \simeq z$ then we have $x-y=\epsilon$ and $y-z=\delta$, adding the two get us $x \simeq z$. The arguement of $\sim$ is similar, so we omit the details.
+  \end{proof}
+
+  \begin{exercise}
+    (Section 5.5, II)
+    If $b \simeq x \leq y \simeq c$ with $b$ and $c$ real, show that $b \leq c$. What if $b$ and/or $c$ are not real?
+  \end{exercise}
+  \begin{proof}
+    First we will prove an useful lemma, if $y>0$ and $y \simeq k$ then $k>0$. Let $k=y+\ep$. In the case where $\ep=0$ and $\ep>0$, it follows trivially. So assume $\ep<0$. Thus, $y-\frac{1}{n}<y+\ep=k$ for all $n \in \N$. Since $\frac{y}{2}$ a real number, we know that there exists $m \in \N$ such that $\frac{1}{m}<\frac{y}{2}$ which implies $0<\frac{y}{2}=y-\frac{y}{2}<y-\frac{1}{m}<k$. This proves the lemma. \\
+    Now assume to the contrary that $c<b$. Thus, $0<c-b$ but it implies that $0<x-y$, since $c-b \simeq x-y$, which is a contradiction.\\
+    The result would not be true if $b$ is not real. Consider $\ep \simeq 0 \leq 0 \simeq 0$ for some positive infintisimal $\ep$, this would imply $\ep \leq 0$ which is false. 
+  \end{proof}
+
+  \begin{exercise}
+    (Section 5.5, III)
+    $\hal(b)=\{b+\ep: e \in \hal (0)\}$.
+  \end{exercise}
+  \begin{proof}
+    The converse inclusion is trivial. For forward, notice that $x \in \hal (b)$ means that $x-b=\ep$, and so $x=b+\ep$.
+  \end{proof}
+
+  \begin{exercise}
+    (Section 5.5, IV)
+    $\gal(b)=\{b+c: c\in \gal (0) \}$.
+  \end{exercise}
+  \begin{proof}
+    Again, the converse implication is trivial. For forward, we see that $x \in \gal(b)$ means $x-b=c$ where $c$ is a limited number, and so $c \in \gal(0)$. Thus, $x=b+c$ for some $c \in \gal(0)$.
+  \end{proof}
+  
+  \begin{exercise}
+    (Section 5.5, V)
+    If $x \simeq y$ and $b$ is limited, prove that $b \cdot x \simeq b \cdot y$. Show that the result can fail for unlimited $b$. 
+  \end{exercise}
+  \begin{proof}
+    Since $x \simeq y$, we have $x-y=\ep$ for some $\ep \in \hal(0)$. Multiplying by $b$ on both sides get us, $bx-by=b \cdot \ep$. It follows that $b \cdot \ep \in \hal(0)$, so $bx \simeq by$. Consider $b=\frac{1}{\ep}$then $b \cdot \ep=1$ which is not infinitisimal.
+  \end{proof}
+
+  \begin{exercise}
+    (Section 5.5, VI)
+    Show that any galaxy contains members of $\hyp \Z$, of $\hyp \Q - \hyp \Z$, and of $\hyp \R - \hyp \Q$.
+  \end{exercise}
+  \begin{proof}
+    Let $b \in \hyp \R$. Clearly, $b-a$ for $a \in \hyp Z$, such that $a$ is intger, is limited. 
+  \end{proof}
+
+  \begin{exercise}
+    (Section 5.7, I)
+    Prove theorem 5.6.2: \\
+    (a) $\sh (b\pm c) = \sh (b) \pm \sh (c)$. \\
+    (b) $\sh(bc)=\sh(b)\cdot \sh(c)$. \\
+    (c) $\sh(b/c)=\sh(b)/\sh(c)$ if $\sh(c) \not = 0$ (ie $c$ is appreciable).\\ 
+    (d) $\sh(b^n)=\sh(b)^n$. \\
+    (e) $\sh (|b|)=|\sh (b)|$.\\
+    (f) $\sh(\sqrt[n]{b})=\sqrt[n]{\sh(b)}$, if $b \geq 0$. \\
+    (g) If $b \leq c$ then $\sh(b) \leq \sh(c)$.
+  \end{exercise}
+  \begin{proof} Consider $b=\sh(b)+\ep$ and $c=\sh(c)+\del$ for some infinitisimal $\ep$ and $\del$. \\
+    (a) For $\sh(b+c)$, notice that $b+c-(\sh(b)+\sh(c))=\ep+\del$. Thus, $\sh(b+c) \simeq b+c \equiv \sh(b)+sh(c)$. From the uniqueness of shadow, it follows $\sh(b+c)=\sh(b)+\sh(c)$. We get identical result in case of $\sh(b-c)$ by considering $b-c-(\sh(b)-\sh(c))=\ep-\del$. \\
+
+    (b) Notice that $bc=\sh(b)\sh(c)+\sh(b) \del +\sh(c)\ep +\ep\del$ where $\sh(b) \del, \sh(c)\ep, \ep\del$ are infintisimals. So, $\sh(bc) \simeq bc \simeq \sh(b)\sh(c)$, and thus by uniqueness of shadow we have $\sh(bc)=\sh(b)\sh(c)$.\\
+
+    (c) Notice that, applying (b), we have $\sh(b/c)=\sh(b) \cdot \sh(1/c)$. So if we could prove $\sh(1/c)=1/\sh(c)$, we would be done. Therefore, we set that as our goal. Clearly, $\frac{1}{c}-\frac{1}{\sh(c)}=\frac{1}{\sh(c)+\del}-\frac{1}{\sh(c)}=\frac{\del}{\sh(c)^2+\sh(c)\del}$. Since $\sh(c)^2+\sh(c)\del$ is appreciable it follows that $\frac{\del}{\sh(c)^2+\sh(c)\del}$ is infinitismal, and thus $\sh(1/c) \simeq 1/c \simeq 1/\sh(c)$. Hence, $\sh(1/c)=1/sh(c)$ by uniqueness of shadow. \\
+
+    (d) Trivially follows from induction on (b).\\
+
+    (e) If we could prove that $|b|\simeq |\sh (b)|$, we would be done since from uniqueness of shadow, $\sh |b|=|\sh (b)|$ would hold. Notice that $|b|-|\sh (b)| \leq |\sh (b)|+|e|-|\sh (b)|=|e|$. If $0 \leq |b|-|\sh (b)|$ then clearly $|b|-|\sh b| \leq |e|<1/n$ for all $n \in \N$. If $|b|-|\sh (b)|<0$ then $-1/n<-|e| \leq |b|-|\sh(b)|$ for all $n \in \N$. Thus, $||b|-|\sh (b)||<1/n$ for every natural $n$. Hence, $|b|-|\sh(b)$ is infinitisimal as desired. \\
+
+    (f) If $\sh(b^\frac{1}{n})<(\sh (b))^\frac{1}{n}$ then by squaring both side and applying part (d), we would get $\sh (b)=\sh(b^{1/n \cdot n})=(\sh (b^{1/n}))^n<(\sh b)^{1/n \cdot n}=\sh(b)$ which is a contradiction. We would get identical contradiction in case of $(\sh (b))^\frac{1}{n}<\sh(b^\frac{1}{n})$. \\
+
+    (g) It follows from 2nd exercise of section 5.5.
+  \end{proof}
 
 \end{document}
 
