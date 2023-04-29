@@ -61,7 +61,9 @@
 
 
 % Define solution environment
-
+\newenvironment{answer}
+    {\textit{answer:}}
+    {}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Original packages, custom environments, and custom commands below
   \usepackage{amsmath,amsfonts,amsthm, amssymb}
   \usepackage{fullpage}
@@ -101,6 +103,7 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\I}{\mathbb{I}}
 \newcommand{\la}{\langle}
 \newcommand{\ra}{\rangle}
 \newcommand{\op}{\oplus}
@@ -512,14 +515,237 @@
 
     (c) Notice that, applying (b), we have $\sh(b/c)=\sh(b) \cdot \sh(1/c)$. So if we could prove $\sh(1/c)=1/\sh(c)$, we would be done. Therefore, we set that as our goal. Clearly, $\frac{1}{c}-\frac{1}{\sh(c)}=\frac{1}{\sh(c)+\del}-\frac{1}{\sh(c)}=\frac{\del}{\sh(c)^2+\sh(c)\del}$. Since $\sh(c)^2+\sh(c)\del$ is appreciable it follows that $\frac{\del}{\sh(c)^2+\sh(c)\del}$ is infinitismal, and thus $\sh(1/c) \simeq 1/c \simeq 1/\sh(c)$. Hence, $\sh(1/c)=1/sh(c)$ by uniqueness of shadow. \\
 
-    (d) Trivially follows from induction on (b).\\
+    (d) Trivially follows from induction on (b). \\
 
-    (e) If we could prove that $|b|\simeq |\sh (b)|$, we would be done since from uniqueness of shadow, $\sh |b|=|\sh (b)|$ would hold. Notice that $|b|-|\sh (b)| \leq |\sh (b)|+|e|-|\sh (b)|=|e|$. If $0 \leq |b|-|\sh (b)|$ then clearly $|b|-|\sh b| \leq |e|<1/n$ for all $n \in \N$. If $|b|-|\sh (b)|<0$ then $-1/n<-|e| \leq |b|-|\sh(b)|$ for all $n \in \N$. Thus, $||b|-|\sh (b)||<1/n$ for every natural $n$. Hence, $|b|-|\sh(b)$ is infinitisimal as desired. \\
+    (e) If we could prove that $|b|\simeq |\sh (b)|$, we would be done since from uniqueness of shadow, $\sh |b|=|\sh (b)|$ would hold. Notice that $|b|-|\sh (b)| \leq |\sh (b)|+|e|-|\sh (b)|=|e|$. If $0 \leq |b|-|\sh (b)|$ then clearly $|b|-|\sh b| \leq |e|<1/n$ for all $n \in \N$. If $|b|-|\sh (b)|<0$ then $-1/n<-|e| \leq |b|-|\sh(b)|$ for all $n \in \N$. Thus, $||b|-|\sh (b)||<1/n$ for every natural $n$. Hence, $|b|-|\sh(b)$ is infinitisimal as desired. 
 
-    (f) If $\sh(b^\frac{1}{n})<(\sh (b))^\frac{1}{n}$ then by squaring both side and applying part (d), we would get $\sh (b)=\sh(b^{1/n \cdot n})=(\sh (b^{1/n}))^n<(\sh b)^{1/n \cdot n}=\sh(b)$ which is a contradiction. We would get identical contradiction in case of $(\sh (b))^\frac{1}{n}<\sh(b^\frac{1}{n})$. \\
+    (f) If $\sh(b^\frac{1}{n})<(\sh (b))^\frac{1}{n}$ then by squaring both side and applying part (d), we would get $\sh (b)=\sh(b^{1/n \cdot n})=(\sh (b^{1/n}))^n<(\sh b)^{1/n \cdot n}=\sh(b)$ which is a contradiction. We would get identical contradiction in case of $(\sh (b))^\frac{1}{n}<\sh(b^\frac{1}{n})$. 
 
     (g) It follows from 2nd exercise of section 5.5.
   \end{proof}
+
+  \begin{exercise}
+    (Section 5.7, I)
+    Show that if $b,c$ are limited, and $b \simeq b^\p, c \simeq c^\p$, then $b \pm c \simeq b^\p \pm c^\p, b\cdot c \simeq b^\p \cdot c^\p$, and $b/c \simeq b^\p/c^\p$ if $c \not \simeq 0$. Show that the last result can fail when $c \simeq 0$.
+  \end{exercise}
+  \begin{proof}
+    Let $b=b^\p+\ep$ and $c=c^\p +\del$ for some infintisimal $\ep$ and $\del$. Then $b \pm c - (b^\p \pm c^\p)=\ep \pm \del$ which is known to be infinitisimal. Thus, $b \pm c \simeq b^\p \pm c^\p$. For multiplication we have $bc-b^\p c^\p=b^\p c^\p+b^\p \del +c^\p \ep + \ep \del -b^\p c^\p=b^\p \del +c^\p \ep + \ep \del$ which is infintisimal. Finally for quotient, we have $\frac{b}{c}-\frac{b^\p}{c^\p}=\frac{b^\p +\ep}{c^\p+\del}-\frac{b^\p}{c^\p}=\frac{b^\p c^\p+c^\p \ep -b^\p c^\p-b^\p \del}{(c^\p)^2+c^\p \del}=\frac{c^\p \ep+b^\p \del}{(c^\p)^2+c^\p \del}$. Since $(c^\p)^2+c^\p \del$ is appreciable, we have $\frac{b}{c}-\frac{b^\p}{c^\p}$ to be infinitsimal. Hence, $b/c \simeq b^\p/c^\p$. For proving the result does not hold for $c \simeq 0$. Consider $b=0$. Then we have $b/c-b^\p/c^p=0-\frac{\ep}{\epsilon-\delta}$ which is not infinitisimal necessarily.
+  \end{proof}
+
+  \begin{exercise}
+    (Section 5.7, II) \\
+    If $\ep$ is infinitesimal, show that \\
+    (a) $\sin \ep \simeq 0$, \\
+    (b) $\cos \ep \simeq 1$, \\
+    (c) $\tan \ep \simeq 0$, \\
+    (d) $\sin \ep /\ep \simeq 1$, \\
+    (e) $(\sin \ep)/\ep \simeq 1$,\\
+    (f) $(\cos \ep -1)/\ep \simeq 0$.
+  \end{exercise}
+  \begin{proof} $ $ \\
+    (a) Since $\forall x \in \R (|\sin x| \leq |x|)$ holds in $\R$, applying transfer on it, it must be the case that $\forall x \in \hyp \R (|\sin x| \leq |x|)$ holds in $\hyp \R$. Therefore, $|\sin \ep| \leq |\ep|$, and so $\sin \ep$ is infintisimal. Hence, $\sin \ep \simeq 0$. \\
+
+    (b) Since $\cos \ep=\sqrt{(1-\sin^2 \ep)}$, we have $\sh (cos \ep)=\sh \sqrt{(1-\sin^2 \ep)}=\sqrt{(\sh(1)-\sh(\sin^2 \ep))}=\sqrt{(1-\sh(\del^2))}=\sqrt{(1-0)}=1$. Clearly, $\cos \ep \simeq \sh(\cos \ep)=1$. \\
+
+    (c) $\sh (\tan \ep)=\sh(\sin \ep)/\sh( \cos \ep)=0/1=0$. Hence, $\tan \ep \simeq 0$. \\
+
+    (d) Notice that $|\sin \ep| \leq |\ep|$, so $|\sin (\ep)/\ep| \leq 1$. Thus, $\sh \left( \left| \frac{\sin \ep}{\ep} \right| \right) \leq 1$. We will now show that $\sh \left( \left| \frac{\sin \ep}{\ep} \right| \right)<1$ leads to contradiction which would get us $\sh \left( \left| \frac{\sin \ep}{\ep} \right| \right)=1$. Clearly if $\sh \left( \left| \frac{\sin \ep}{\ep} \right| \right)<1$ then $0=\sh(|\sin \ep|)-\sh|\ep|<0$ which is false. Therefore, $(\sin \ep)/\ep \simeq \sh \left( \left| \frac{\sin \ep}{\ep} \right| \right)=1$. \\
+
+    (e) By the sine inequality, $|\sin \ep|/|\ep| \leq 1$. By the tangent inequality, $|x| \leq |\tan (x)|$ for $x \in [0, \pi/2)$, we have $|\cos x|\leq |\sin x|/|x|$. Combining the two inequalities and taking shadow we see $1=\sh (|\cos \ep|) \leq \sh (|\sin(\ep)/\ep |) \leq 1$. Therefore, $\sh(|\sin(\ep)/\ep |)=1$. Hence, $(\sin \ep)/\ep \simeq 1$. \\
+
+    (f) By cosine inequality, $1-\frac{\ep^2}{2} \leq \cos \ep$, we have $-\ep/2 \leq (\cos \ep -1)/\ep$. Since $cos \ep \leq 1$, we have $(\cos \ep -1)/\ep \leq 0/\ep=0$. Hence $|(\cos \ep-1)/\ep| \leq \ep/2$ and so $(\cos \ep-1)/\ep$ is infinitesimal, which makes it infinitely close to $0$.
+  \end{proof}
+
+  \begin{exercise}
+    (Section 5.7, III)
+    Show that every hyperreal is infinitely close to some hyperrational number.
+  \end{exercise}
+  \begin{proof}
+    Since $\forall x,y \in \R (x<y \text{ implies } \exists q \in \Q (x<q<y))$ holds in reals (density of rationals), by transfer, we have $\forall x,y \in \hyp \R (x<y \text{ implies } \exists q \in \hyp \Q (x<q<y))$. In particular there is a hyperrational $q$ such that $r<q<r+\ep$ for any hyperreal $r$. Clearly such a $q$ is infinitely close to $r$.
+  \end{proof}
+
+  \begin{exercise}
+    (Section 5.7, IV)
+    Show that $\R$ is isomorphic to the ring of limited hyperrationals $\hyp \Q \cap \mathbb{L}$ factored by its ideal $\hyp \Q \cap \I$ of hyperreational infintisimal.
+  \end{exercise}
+  \begin{proof}
+    \[\begin{tikzcd}
+      {\bullet {}^*\mathbb{Q} \cap \mathbb{L}} &&&& {\bullet \mathbb{R}} \\
+      \\
+      && {\bullet ({}^* \mathbb{Q} \cap \mathbb{L})/({}^* \mathbb{Q} \cap \mathbb{I})}
+      \arrow["{\text{canonical projection}}"', two heads, from=1-1, to=3-3]
+      \arrow["{f(\text{hal}(b)+({}^* \mathbb{Q} \cap \mathbb{L})/({}^* \mathbb{Q} \cap \mathbb{I}))=\text{sh}(b)}"{description}, tail, two heads, from=3-3, to=1-5]
+      \arrow["{\text{sh}}"', two heads, from=1-1, to=1-5]
+    \end{tikzcd}\]
+    Consider shadow function restricted to $\hyp \Q \cap \mathbb{L}$, in what follows we would use $\sh$ notation for it instead of $\sh_{\hyp \Q \cap \mathbb{L}}$. We will first justify it's surjective. Since $\R \subseteq \hyp \R$, applying previous exercise, we see that for any $x \in \R$, there is $q \in \hyp \Q$ such that $x \simeq q$ but then it would mean $x \simeq \sh(q)$. Since both $x$ and $\sh(q)$ are reals, it must be the case that $x=\sh(q)$. Hence, $\sh(q)=x$ as desired. Notice that for any $[r] \in (\hyp \Q \cap \mathbb{L})/(\hyp Q \cap \I)$, we have $[r]=r+\hyp Q \cap \I$ which is nothing but $\hal(r)$. Define $f: (\hyp \Q \cap \mathbb{L})/(\hyp Q \cap \I) \rightarrow \R$ as $\hal(b) \mapsto \sh(b)$. By the first isomorphism theorem of rings, it follows $(\hyp \Q \cap \mathbb{L})/(\hyp Q \cap \I) \simeq \R$.
+  \end{proof}
+
+  \begin{exercise}
+    (Section 5.9, Exercise on Dedekind completeness)
+    For threoem 5.8.1, instead of showing that cauchy sequences converge we can develop a direct proof that any subset $A \subseteq \R$ with a real upper bound has a least real upper bound. First, for each $n \in \N$, let $s_n$ be the least $k \in \Z$ such that $k/n$ is an upper bound of $A$. Then take an unlimited $N \in \hyp \N_\infty$ and let $L \in \R$ be infinitely close to $s_N/N$. \\
+    (a) Verify that $s_n$ exists as defined for $n \in \N$. \\
+    (b) Show the $s_N/N$ is limited, so that such a real $L$ exists under hypothesis of theorem 5.8.1. \\
+    (c) Prove that $L$ is a least upper bound of $A$ in $\R$.
+  \end{exercise}
+  \begin{proof} Let $r$ be an upper bound of $A \subseteq \R$. \\
+    (a) Let $n \in \N$. Consider the set $B=\{m \in \N: m/n \text{ is an upper bound of } A \}$. Since $r \in \R$, by archimedean property, we know that there exists $l \in \N$ such that $r<l$. Clearly $l\cdot n \in B$, and so $B$ is non empty. By the well ordering principle, it follows that there exists a least element in $B$, or in other words there exists a least $k \in \N$ such that $k/n$ is an upperbound of $A$ for each $n$. \\
+
+    (b) Let $n \in \N$. Since $s_n$ is the least integer such that $s_n/n$ is upperbound of $A$, clearly $(s_n-1)/n$ is not an upper bound. But that means there exists some $a \in A$ such that $(s_n-1)/n \leq a \leq s_n/n$. Applying transfer on the statement $(\forall n \in \N) (\exists a \in A) ((s_n-1)/n \leq a \leq s_n/n)$, we get $(\forall n \in \hyp \N) (\exists a \in \hyp A) ((s_n-1)/n \leq a \leq s_n/n)$. In particular, we have $(s_N-1)/N \leq a \leq s_N/N$. However since $s_N/N$ and $(s_N-1)/N$ are infinitely close, it must be the case that $a$ is infinitely close to $s_N/N$. Applying transfer on the statement $(\forall a \in A) (a \leq r)$, where $r$ is the real upper bound we are given, we get $(\forall a \in \hyp A)(a \leq r)$.  Thus, $s_N/N \leq r$. Next we will prove that is not negative unlimited either. Since $A \subseteq \hyp A$ and $s_N/N$ is an upper bound of $\hyp A$, we have some $x \in A$ such that $x \leq s_N/N$. Hence, $x \leq s_N/N \leq r$ for some real $r,s$. \\
+
+    (c) For the sake of contradiction assume there is an upper bound, $K$, of $A$ such that $K<L$. Notice that there does not exists any $a \in A$ such that $a \in [K, L]$ since otherwise $K$ would not be an upper bound. Applying transfer on $(\forall a \in A) (a \notin [K, L])$, we get $(\forall a \in \hyp A)(a \notin \hyp [K, L])$ which is false since in previous paragraph we demonstrated that there is an element of $\hyp A$ which is infinitely close to $L$.
+  \end{proof}
+
+  \begin{exercise}
+    (Section 5.11, I)
+    Provide an analogous description of the order structure of the hyperintgers $\hyp \Z$.
+  \end{exercise}
+  \begin{proof}
+    By transfer, we know that $\hyp \Z$ is closed under addition, subtraction and multiplication. Observe that only limited hyperinteger are members of $\Z$ since if $k \in \hyp Z$ is limited then $|k| leq n$ for some $n \in \N$ but that means $-n \leq k \leq n$. Applying transfer on $\forall x \in \Z (-n \leq x \leq n \rightarrow x=-n \lor x=-n+1 \lor \cdots x=1 \lor \cdots x=n)$, thus $k \in \{-n, -n+1, \cdots, n\}$, and so $k \in \Z$. Therefore, all numbers of $\hyp \Z-\Z$ are unlimited and thus either less than all members of $\Z$ or greater than it. Let $K \in \hyp \Z - \Z$. Define $\gamma (K)=\{K\} \cup \{K \pm n: n \in \N\}$, clearly all members of $\gamma(K)$ are unlimited and $\gamma(K)$ is isomorphic to $\Z$ under the usual ordering. Alternatively, we can defined $\gamma(K)=\{H \in \hyp \Z: Z \sim H\}=\gal(K) \cap \hyp \Z$. Notice that $Z$ itself is a $\hyp \Z$ galaxy, $\Z=\gal(0) \cap \hyp \Z$. \\
+
+    We define order on $\hyp \Z$ galaxy as $\gamma(Y)< \gamma (H)$ iff $Y \leq H$ whenever $K \not \sim H$. Clearly there is no greatest $\hyp \Z$ galaxy since $\gamma(K)< \gamma (2K)$ for any positive unlimited $K$. Simillarly there is no smallest galaxy either. To see why notice that either $K$ is even or $K+1$ is, by transfer. If $K+1$ is even, we have $\gamma(K+1/2)<\gamma(K+1)=\gamma(K)$. If $K$ is even then we have $\gamma(K)<\gamma(K)$. \\
+
+    We can imagine ordering on $\hyp \Z$ as ordering of $\Z$ surrounded by ordered set of $\hyp \Z$ galaxies with no greatest or least.
+  \end{proof}
+
+  \begin{exercise}
+    (Section 5.11, II)
+    Show that for any $M \in \hyp \N$ there is an $N \in \hyp \N$ that is divisble by all members of $\{1,2,\cdots, M\}$. Hence show that there exists a hypernatural number $N$ that is divisble by every standard positive integer.
+  \end{exercise}
+  \begin{proof}
+    We extend the factorial function $!:\N \rightarrow \N$ to $!:\hyp \N \arr \hyp \N$ using extension of function. Applying transfer on the statement $(\forall n \in \N)(k \leq n \arr k|n!)$, we get $(\forall n \in \hyp \N)(k \leq n \arr k|n!)$. Thus, letting $N=M!$ does the job.
+  \end{proof}
+
+  \begin{exercise}
+    (Section 5.11, III)
+    Develop a theory of prime factors in $\hyp \N$: if $\Pi$ is the set of standard prime numbers, with enlargement $\hyp \Pi \subseteq \hyp \N$, prove the following. \\
+    (a) $\hyp \Pi$ consists precisely of those hypernaturals $>1$ that have no nontrivial factors in $\hyp \N$. \\
+    (b) Every hypernatural number $>1$ has a hyperprime factor, i.e., is divisble by some members of $\hyp \Pi$. \\
+    (c) Two hypernaturals are equal if they have exactly the same factors of the form $p^n$ with $p \in \hyp \Pi$ and $n \in \hyp \N$. \\
+    (d) A hypernatural number is divisible by every standard positive integer iff it is divisible by $p^n$ for every standard prime $p$ and every $n \in \N$.
+  \end{exercise}
+  \begin{proof} $ $ \\
+    (a) By transfer on $(\forall x \in \Pi) (x>1 \rightarrow \text{ x have no nontrivial factors in } \N)$. \\
+    (b) By transfer on $(\forall n \in \N)(n>1 \rightarrow \exists p \in \Pi)(p|n)$.  \\
+    (c) By transfer on $(\forall x \in \N)(\forall y \in \N)(x=y \leftrightarrow$ they have exactly the same factors of the form $p^n$ with $p \in \Pi$ and $n \in \N$). \\
+    (d) Trivial.
+  \end{proof}
+
+\chapter{Convergence of Sequences and Series}
+
+  \begin{exercise}
+    (Section 6.3, I)
+    Prove theorem 6.3.1. If $\lim_{n \arr \infty }s_n=L$ and $\lim_{n \arr \infty} t_n=M$ in $\R$. Then \\
+    (a) $\lim_{n\arr \infty} (s_n+t_n)=L+M$. \\
+    (b) $\lim_{n \arr \infty} (cs_n)=cL$, for any $c \in \R$, \\
+    (c) $\lim_{n \arr \infty} (s_n t_n)=LM$, \\
+    (d) $\lim_{n \arr \infty} (s_n/t_n)=L/M$, if $M \not = 0$.
+  \end{exercise}
+  \begin{proof} For what follows consider $N \in \hyp \N_{\infty}$. It means that $s_N \simeq L$ and $t_N \simeq M$.\\
+    (a) Since $s_N \simeq L$ and $t_N \simeq M$, it follows $s_N+t_N \simeq L+M$. Since $N$ was arbitrary, we have $s_n+t_n \simeq L+M$ for all unlimited $n$. Hence, $\lim_{n \arr \infty } (s_n+t_n)=L+M$. \\
+    (b) Since $S_N \simeq L$, we have $c S_N \simeq cL$. Since $N$ was arbitrary, $cs_n \simeq cL$ for all unlimited $n$. Hence, $\lim_{n \arr \infty } cs_n=cL$. \\
+    (c) Since $s_N \simeq L$ and $t_N \simeq M$, we have $s_N t_N \simeq LM$ but since $N$ was arbitrary, it follows $s_nt_n \simeq LM$ for all unlimited $n$. Hence, $\lim_{n \arr \infty} (s_n t_n)=LM$. \\
+    (d) Again, from $s_N \simeq L$ and $t_N \simeq M$, we have $s_N/t_N \simeq L/M$ but since $N$ was arbitrary, $\lim_{n \arr \infty } s_n/t_n=L/M$.
+  \end{proof}
+  \begin{exercise}
+    (Section 6.4, I)
+    Prove theorem 6.4.2. A real valued sequence \\
+    (a) diverges to infinity iff all of its extended terms are positive unlimited; and \\
+    (b) diverges to negative infinity iff all of its extended terms are negative unlimited.
+  \end{exercise}
+  \begin{proof} Let the sequence be $(s_n)$. \\
+    (a) First we prove forward direction. Let $r \in \R$. Since the sequence diverges, we know that there is some $n \in \N$ such that $(\forall m \in \N)(m \geq n \arr s_m>r)$ holds true. Applying transfer on it, we have $(\forall m \in \hyp \N)(m \geq n \arr s_m>r)$ to be true. In particular, $s_N>r$ for any $N \in \hyp \N_\infty$ since $N>n$. It follows that $s_N$ is positive unlimited for all $N \in \hyp \N_\infty$. We prove the converse direction. Let $r \in \R$. Notice that for any unlimited $N \in \hyp \N_\infty$ if $M\geq N$ then $M \in \hyp \N_\infty$. Therefore, it follows that $(\exists n \in \hyp \N)(\forall m \in \hyp \N)(m \geq n \arr s_m>r)$ since $s_m$ is positive unlimited by assumption. Transferring the statement to $\R$, we have $(\exists n \in \N)(\forall m \in \N)(m \geq n \arr s_m>r)$ to be true in $\R$. Since $r$ was arbitrary, we have $(s_n)$ to be divergent to positive infinity. \\
+
+    (b) Follows from (a) by considering the sequence $(-s_n)$.
+  \end{proof}
+\newpage
+  \begin{exercise}
+    (Section 6.5, I)
+    Prove theorem 6.5.1. A real values sequence $\la s_n \ra$ is Cauchy in $\R$ iff all it's extended terms are infinitely close to each other, i.e., iff $s_m \simeq s_n$ for all $m,n \in \hyp \N_\infty$.
+  \end{exercise}
+  \begin{proof}
+    First we prove the forward implication. Suppose $\la s_n \ra$ is cauchy. Let $\ep \in \R^+$ and $j \in \N$ be such that $(\forall m,n \in \N)(m,n \geq j \rightarrow |s_m-s_n|<\ep)$. Applying transfer on the latter we know $(\forall m,n \in \hyp \N)(m,n \geq j \rightarrow |s_m-s_n|<\ep)$ is true in $\hyp \R$. In particular, we have $|s_M-s_N|<\ep$ for arbitrary $M, N \in \hyp \N_\infty$ since $j$ is limited. Since $\ep$ was arbitrary positive real number, we have $s_M \simeq s_N$. We now prove the converse direction. Suppose $s_m \simeq s_n$ for all $m,n \in \hyp \N_\infty$. Let $\ep \in \R^+$ be arbitrary. Notice that for any $K \in \hyp \N_\infty$, if $L \geq N$ then $L \in \hyp \N_\infty$, and also notice for any $L, K \in \hyp \N_\infty$, $s_L-s_K=\delta$ where $\delta$ is infintisimal. Therefore, we have $(\exists j \in \hyp \N)(\forall m,n \in \hyp \N)(m,n \geq j \rightarrow |s_m-s_n| \leq \ep)$ to be true in $\hyp \R$. Applying transfer to it, we have $(\exists j \in \N)(\forall m,n \in \N)(m,n \geq j \rightarrow |s_m-s_n|<\ep)$ to be true in $\R$. Since $\ep \in \R^+$ was arbitrary, we have $(s_n)$ to be cauchy. 
+  \end{proof}
+  
+  \begin{exercise}
+    (Section 6.5, II). Cauchy's convergence Criterion. \\
+    Prove the foward direction of \textit{A real valued sequence converges in $\R$ iff it is cauchy}.
+  \end{exercise}
+  \begin{proof}
+    Let $(s_n)$ be a real valued sequence and suppose it convergence in $\R$ to $L$. Therefore, by theorem 6.1.1, we have $s_N \simeq L$ for all $n \in \hyp \N_\infty$ but that means all extended terms are infinitely close to each other i.e. for any $n,m \in \hyp \N_\infty$, $s_n \simeq L \simeq s_m$. Therefore, by theorem 6.5.1, we have $(s_n)$ to be cauchy.
+  \end{proof}
+
+  \begin{exercise}
+    (Section 6.7, I)
+    Let $(s_n)$ and $(t_n)$ be real valued sequences with limits, $L, M$ respectively. Show that if $s_n \leq t_n$ for $n \in \N$. Then $L \leq M$.
+  \end{exercise}
+  \begin{proof}
+    Applying transfer on $(\forall n \in \N)(s_n \leq t_n)$, we have $(\forall n \in \N)(s_n \leq t_n)$ to be true in $\hyp \R$. In particular for any $N \in \hyp \N_\infty$, we have $s_N \leq t_N$, however, since $L \simeq s_N \leq t_N \simeq M$, we have $L \leq M$ by exercise 2 of section 5.5.
+  \end{proof}
+  
+  \begin{exercise}
+    (Section 6.7, II)
+    If $r_n \leq s_n \leq t_n$ in $\R$ for all $n \in \N$, and $\lim_{n \arr \infty} r_n=\lim_{n \arr \infty} t_n$, show that $(s_n)$ converges to this same limit.
+  \end{exercise}
+  \begin{proof}
+    Applying transfer on $(\forall n \in \N)(r_n \leq s_n \leq t_n)$, we have $(\forall n \in \hyp \N)(r_n \leq s_n \leq t_n)$ to be true in $\hyp \R$. In particular, for any $N \in \hyp \N_\infty$, we have $r_N \leq s_N \leq t_N$. However, since $(r_N), (t_N)$ are limited, $s_N$ is limited. By the shadow inequalitiy, we have $\sh(r_N) \leq \sh(s_N) \leq \sh(t_N)=\sh(r_N)$. Hence, $\sh(s_N)=\sh(r_N)=\lim_{n \arr \infty} r_n$ but that means $r_N \simeq \lim_{n \arr \infty} r_n$ for all $N \in \hyp \N_\infty$. Hence, $(s_n)$ converges to $\lim_{n \arr \infty} r_n$.
+  \end{proof}
+
+  \begin{exercise}
+    (Section 6.7, III)
+    If a sequence converges in $\R$, show that it has exactly one cluster point.
+  \end{exercise}
+  \begin{proof}
+    Suppose $(s_n)$ converges to $L$ and assume it has two cluster point $A$ and $B$. By definition of convergence we have $s_N \simeq L$ for all $N \in \hyp N_\infty$ but that would imply $B \simeq L \simeq A$ by the definition of cluster point, since they are reals, it follows $A=L=B$. 
+  \end{proof}
+
+  \begin{exercise}
+    (Section 6.7, IV)
+    Suppose that a real valued sequence has a single cluster point. If the sequence is bounded, must it be convergent? what if it is unbounded?
+  \end{exercise}
+  \begin{proof}
+    Let $(s_n)$ be a bounded sequence which has an unique cluster point i.e. for some $M \in \hyp \N_\infty$, we have $s_M \simeq L$ for some real $L$. Suppose it is not convergent. Therefore, there must exists $N \in \hyp \N_\infty$ such that $s_N \not \simeq L$. However since $(s_n)$ is bounded, we have $s_N$ to be limited and hence infinitely close to a real number ie its shadow. But if $\sh(s_N) \not = L$, clearly $\sh(s_N)$ is a cluster point which contradicts the assumption that there was an unique cluster point. \\
+    Consider the sequence $\la s \ra=(0,1,0,2,0,3,\cdots)$. Clearly this sequence has only one cluster point and is unbounded but it does not converges to any real number.
+  \end{proof}
+\newpage
+  \begin{exercise}
+    (Section 6.8, I)
+    Prove, by nonstandard reasoning, that both the limit superior and limit inferior are cluster points of the sequence $s$.
+  \end{exercise}
+  \begin{proof}
+    Let $L=\limsup s$ and $\ep \in \R^+$. Since $L$ is supremum of $C_s$, we know there exists $N \in \hyp \N_\infty$ such that $L-\ep <s_N \leq L$. Consider some arbitrary $n \in \N$. We have $(\exists m \in \hyp \N)(m>n \land L-\ep<s_m)$ to be true, and applying transfer on it, it follows $(\exists m \in \N)(m>n \land L-\ep<s_n)$ is true in $\R$. Since $\ep \in \R^+$ and $n \in \N$ was arbitrary, $(\forall \ep \in \R^+)(\forall n \in \N) (\exists m \in \N)(m>n \land L-\ep<s_m)$ is true in $\R$. Applying transfer we see $(\forall \ep \in \hyp \R^+) (\forall n \in \hyp \N)(\exists m \in \hyp \N)(m>n \land L-\ep<s_n)$ holds in $\hyp \R$. Picking $\ep$ as some infinitesimal and $n$ as unlimted, we follow there is some $m \in \hyp \N$ making $m>n$ and $L-e<s_m$ true, that is to say, there is unlimited $m$ such that $L<s_m+e$. Therefore, it follows $L \leq \sh(s_m)$ for an unlimited $m$. However, since $L$ is upper bound of $C_s$, we must have $L=\sh(s_m)$ making it a cluster point. We cab argue about $\lim \inf$ in a similar fashion.
+  \end{proof}
+  \begin{exercise}
+    (Section 6.9, I)
+    Formulate the definition of the limit inferior of an arbitrary real valued sequence.
+  \end{exercise}
+  \begin{answer} $ $ \\
+    \textbf{Proposition} A real number $L$ is equal to $\liminf s$ if and only if \\
+    (1) $L<s_n$ or $L \simeq s_n$ for all unlimited $n$; and \\
+    (2) $s_n \simeq L$ fdor atleast one unlimited $n$. \\
+  \begin{proof} 
+    The condition (1) holds iff $L \leq \sh(s_n)$. Thus, it implies $L$ is lower bound of set of cluster points, $C_s$. The condition (2) asserts that $L$ is a cluster point i.e. $L \in C_s$. Together they imply that $L$ is infimum (since it's the smallest element) of the set. Hence, it is equal to $\liminf s$.  
+  \end{proof}
+  \end{answer}
+  
+  \begin{exercise}
+    Formulate and prove theorems about the limit inferior of a bounded sequence that correspond to theorems 6.8.4 and 6.8.5.
+  \end{exercise} 
+  \begin{answer} $ $ \\
+    \textbf{Proposition-1.} If $s$ is a bounded real valued sequence with limit inferior, $\liminf$, then for any positive real $\ep$: \\
+    (1) Some standard tail of $s$ has all its terms bigger than $\liminf-\ep$ i.e. $\liminf-\ep<s_n$ for all but finitely many $n \in \N$. \\
+    (2) $s_n<\liminf +\ep$ for infinitely many $n \in \N$.
+    \begin{proof}
+      Let $L=\liminf s$. Consider $\ep \in \R^+$. First we prove (1). For any unlimited $N$, we have $L<s_N$ or $L \simeq s_N$. Thus, $L-\ep<s_N$ holds for any unlimited $N$. Trasnferring $(\exists n \in \hyp \N)(\forall m \in \hyp \N)(m \geq n \land L-\ep<s_m)$, we have $(\exists n \in \N)(\forall m \in \N)(m>n \land L-\ep<s_m)$ to be true in $\R$ but that simply means $L-\ep<s_m$ is true for all but finitely many $n$. We now prove (2). Let $m \in \N$. We know that $L$ is infinitely close to $s_N$ for some unlimited $N$. Thus, $(\exists n \in \hyp \N)(n>m \land s_n<L+\ep)$ is true in $\hyp \R$. Transfering it, we have $(\exists n \in \N)(n>m \land s_n<L+\ep)$ to be true in $\R$. However since $m \in \N$ was arbitrary, it follows that for any $m \in \N$ there exists $n \in \N$ such that $n>m$ and $s_n<L+e$ satisfying the proposition.
+    \end{proof}
+
+    \textbf{Proposition-2.} For any bounded real valued sequence $s$, $$\liminf_{n \arr \infty} s_n=\lim_{n \arr \infty} I_n=\lim_{n \arr \infty} \left(\inf_{m \geq n} s_m \right)$$ where $I_n=\inf_{m \geq n} s_m$.
+    \begin{proof}
+      First we will prove that $\liminf$ is upper bound of $S$. Take an extended term $s_N$ infinitely close to the cluster point $\liminf$. For any $m \in \N$, we have $I_m \leq s_n$ for all limited $n \geq m$, and hence it holds for all hypernatural $n \geq m$ by transfer. In particular, $I_m \leq s_N$, as $\liminf \simeq s_N$, we have $I_m \leq \liminf$. \\
+      Let $L=\lim S_n$. Then clearly $L$ is supremum of $S$ since $S$ is nondecreasing. However, as we showed $\liminf$ is an upper bound, we must have $L \leq \liminf$. We will now show that $L< \liminf$ is impossibility. Suppose $L< \liminf$ and consider some $\ep \in \R^+$. By proposition-1, we know that there exists a $n \in \N$ such that standard tail beyond $n$ is bounded below by $\liminf-\ep$.
+    \end{proof}
+
+  \end{answer}
+  
 
 \end{document}
 
