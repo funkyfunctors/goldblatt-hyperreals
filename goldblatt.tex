@@ -728,6 +728,7 @@
   \end{answer}
   
   \begin{exercise}
+    (Section 6.9, III)
     Formulate and prove theorems about the limit inferior of a bounded sequence that correspond to theorems 6.8.4 and 6.8.5.
   \end{exercise} 
   \begin{answer} $ $ \\
@@ -737,14 +738,71 @@
     \begin{proof}
       Let $L=\liminf s$. Consider $\ep \in \R^+$. First we prove (1). For any unlimited $N$, we have $L<s_N$ or $L \simeq s_N$. Thus, $L-\ep<s_N$ holds for any unlimited $N$. Trasnferring $(\exists n \in \hyp \N)(\forall m \in \hyp \N)(m \geq n \land L-\ep<s_m)$, we have $(\exists n \in \N)(\forall m \in \N)(m>n \land L-\ep<s_m)$ to be true in $\R$ but that simply means $L-\ep<s_m$ is true for all but finitely many $n$. We now prove (2). Let $m \in \N$. We know that $L$ is infinitely close to $s_N$ for some unlimited $N$. Thus, $(\exists n \in \hyp \N)(n>m \land s_n<L+\ep)$ is true in $\hyp \R$. Transfering it, we have $(\exists n \in \N)(n>m \land s_n<L+\ep)$ to be true in $\R$. However since $m \in \N$ was arbitrary, it follows that for any $m \in \N$ there exists $n \in \N$ such that $n>m$ and $s_n<L+e$ satisfying the proposition.
     \end{proof}
-
     \textbf{Proposition-2.} For any bounded real valued sequence $s$, $$\liminf_{n \arr \infty} s_n=\lim_{n \arr \infty} I_n=\lim_{n \arr \infty} \left(\inf_{m \geq n} s_m \right)$$ where $I_n=\inf_{m \geq n} s_m$.
     \begin{proof}
-      First we will prove that $\liminf$ is upper bound of $S$. Take an extended term $s_N$ infinitely close to the cluster point $\liminf$. For any $m \in \N$, we have $I_m \leq s_n$ for all limited $n \geq m$, and hence it holds for all hypernatural $n \geq m$ by transfer. In particular, $I_m \leq s_N$, as $\liminf \simeq s_N$, we have $I_m \leq \liminf$. \\
-      Let $L=\lim S_n$. Then clearly $L$ is supremum of $S$ since $S$ is nondecreasing. However, as we showed $\liminf$ is an upper bound, we must have $L \leq \liminf$. We will now show that $L< \liminf$ is impossibility. Suppose $L< \liminf$ and consider some $\ep \in \R^+$. By proposition-1, we know that there exists a $n \in \N$ such that standard tail beyond $n$ is bounded below by $\liminf-\ep$.
+      First we will prove that $\liminf$ is upper bound of $I$. Take an extended term $s_N$ infinitely close to the cluster point $\liminf$. For any $m \in \N$, we have $I_m \leq s_n$ for all limited $n \geq m$, and hence it holds for all hypernatural $n \geq m$ by transfer. In particular, $I_m \leq s_N$, as $\liminf \simeq s_N$, we have $I_m \leq \liminf$. \\
+      Let $L=\lim I_n$. Then clearly $L$ is supremum of $I$ since $I$ is nondecreasing. However, as we showed $\liminf$ is an upper bound, we must have $L \leq \liminf$. We will now show that $L< \liminf$ is impossibility. Suppose $L< \liminf$ and consider some $\ep \in \R^+$ such that $L<\lim\inf-\ep$. By proposition-1, we know that there exists $n \in \N$ such that standard tail beyond $n$ is bounded below by $\liminf-\ep$. But that means that $\liminf-\ep \leq I_n$, and so $L<\liminf-\ep\leq I_n$ which contradicts the fact that $L$ was upper bound of $I$. Hence, $\liminf=L$.
     \end{proof}
-
   \end{answer}
+
+  \begin{exercise}
+    (Section 6.9, III)
+    If $s$ is a bounded sequence, show that for each $\ep \in \R^+$ there is some $n \in \N$ such that the standard tail $s_n, s_{n+1}, \cdots$ is contained in the interval $(\liminf-\ep, \limsup+\ep)$.
+  \end{exercise}
+  \begin{proof}
+    By theorem 6.8.4 and previous exericse, we know that there exists $N \in \N$ such that for all $n\geq N$, $s_n<\limsup+\ep$ and there exists $N^\p \in \N$ such that for all $n\geq N^\p$, $s_n<\limsup+\ep$. Defining $m=\max\{N, N^\p\}$, the tail following $s_m$ is the desired one.
+  \end{proof}
+
+  \begin{exercise}
+    (Section 6.11, I)
+    Give an example of a series that diverges but has $a_n$ infinitesimal for all unlimted $n$.
+  \end{exercise}
+  \begin{proof}
+    Consider the sequence $(s_n)$ defined as $(s_n)=(1/n)$. Clearly for any unlimited $n$, $a_n$ is infinitisimal. However, notice that 
+
+  \end{proof}
+
+  \begin{exercise}
+    (Section 6.11, II)
+    Give nonstandard proofs of the usual rules of arithemtically combining convergent series. \\
+    (a) $\sum_{1}^\infty a_i+\sum_{1}^\infty b_i=\sum_{1}^\infty (a_i+b_i)$, \\
+    (b) $\sum_1^\infty a_i-\sum_1^\infty b_i=\sum_1^\infty (a_i-b_i)$,
+  \end{exercise}
+  \begin{proof} We will first prove (a), then (c), and then use (a) and (c) for proving (b). For what follow, Let $L=\sum_{1}^\infty a_i$ and $M=\sum_{1}^\infty b_i$. \\
+    (a) Let $N \in \hyp \N_\infty$. Since $\sum_{1}^n (a_i+b_i)=\sum_{1}^n a_i+\sum_{1}^n b_i$ holds in $\R$ for all $n \in \N$, by transfer we know it also holds in $\hyp \R$ for all $n \in \hyp \N$. Hence, $$\sum_{1}^N (a_i+b_i)=\sum_{1}^N a_i+\sum_{1}^N b_i.$$ and thus, 
+    \begin{align*}
+      \sh \left(\sum_{1}^N (a_i+b_i)\right) &=\sh \left(\sum_{1}^N a_i+\sum_{1}^N b_i \right) \\
+      &=\sh \left(\sum_{1}^N a_i \right)+\sh \left( \sum_{1}^N b_i \right) \\
+      &= L+M
+    \end{align*}
+
+    As desired. \\
+
+    (c) Let $N \in \hyp \N_\infty$. Then it follows 
+    \begin{align*}
+      \sh \left( \sum_{1}^N ca_i \right) &= \sh \left(c\sum_1^N a_i \right) &\text{(by transfer)}\\
+      &= c\cdot \sh \left( \sum_1^N a_i \right) \\
+      &=c \cdot L
+    \end{align*}
+    as desired. \\
+
+    (b) Let $N \in \hyp \N_\infty$. Then 
+    \begin{align*}
+      \sh \left( \sum_1^N (a_i-b_i)\right) &= \sh \left( \sum_1^N (a_i+(-b_i))\right) \\
+      &=\sh \left(\sum_{1}^N a_i \right)+\sh \left( \sum_{1}^N (-b_i) \right) &\text{(by part a)}\\
+      &= \sh \left(\sum_{1}^N a_i \right) +(-1) \cdot \sh \left( \sum_{1}^N (-b_i) \right) &\text{(by part c)} \\
+      &=L+(-M) \\
+      &=L-M.
+    \end{align*}
+  \end{proof}
+
+  \begin{exercise}
+    (Section 6.11, III)
+    Suppose that $a_i \geq 0$ for all $i \in \N$. Prove that $\sum_{1}^\infty$ converges iff $\sum_{1}^n a_i$ is limited for all unlimited $n$, and that this holds iff $\sum_{1}^n a_i$ is limited for some unlimted $n$.
+  \end{exercise}
+  \begin{proof}
+    First we prove $(1) \Rightarrow (2)$. Suppose $\sum_{1}^\infty a_i$ converges to a real number $L$. Therefore, we must have $\sum_{1}^N a_i \simeq L$ for all unlimited $N$ but that means $\sum_{1}^N a_i$ is limited. The direction $(2) \Rightarrow (3)$ is easy to see.
+  \end{proof}
   
 
 \end{document}

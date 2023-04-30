@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.3.8)  29 APR 2023 19:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.3.8)  30 APR 2023 01:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1279,6 +1279,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 721--726
  []
 
 [19]
+Underfull \hbox (badness 10000) in paragraph at lines 779--780
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 786--788
+
+ []
+
+[20] [21]
 Xy-pic Warning: The produced DVI file is NOT PORTABLE:
  It contains <driver> `Textures' \specials for the `PostScript' extension.
  It contains <driver> `Textures' \specials for the `color' extension.
@@ -1287,18 +1297,18 @@ Package rerunfilecheck Info: File `goldblatt.out' has not changed.
 (rerunfilecheck)             Checksum: 8E037ABFD2C2B8EF34D7ADF442F2EE34;1066.
  ) 
 Here is how much of TeX's memory you used:
- 31859 strings out of 480247
- 615523 string characters out of 5896152
- 1402540 words of memory out of 5000000
+ 31865 strings out of 480247
+ 615589 string characters out of 5896152
+ 1402539 words of memory out of 5000000
  49088 multiletter control sequences out of 15000+600000
  487057 words of font info for 75 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  129i,15n,132p,1219b,1046s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/work/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/work/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1095.600pk> </home/work/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrb2074.600pk> </home/work/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </home/work/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrb1095.600pk> </home/work/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrb2488.600pk> </home/work/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1200.600pk> </home/work/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc2488.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on goldblatt.pdf (19 pages, 285037 bytes).
+Output written on goldblatt.pdf (21 pages, 291523 bytes).
 PDF statistics:
- 545 PDF objects out of 1000 (max. 8388607)
- 246 compressed objects within 3 object streams
- 83 named destinations out of 1000 (max. 500000)
+ 559 PDF objects out of 1000 (max. 8388607)
+ 257 compressed objects within 3 object streams
+ 89 named destinations out of 1000 (max. 500000)
  61 words of extra memory for PDF output out of 10000 (max. 10000000)
 
