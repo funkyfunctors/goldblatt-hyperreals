@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1682798599 "/home/work/Documents/goldblatt hyperreals/goldblatt.tex" "goldblatt.pdf" "goldblatt" 1682798601
+["pdflatex"] 1682957876 "/home/work/Documents/goldblatt hyperreals/goldblatt.tex" "goldblatt.pdf" "goldblatt" 1682957878
   "/etc/texmf/web2c/texmf.cnf" 1678247487 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/work/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1200.600pk" 1678769527 30556 a2ffea8e0bbe695580d7ec46ac6eb156 ""
   "/home/work/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc2488.600pk" 1678769528 74620 3c1ac79128c947dccc645e454d822d34 ""
@@ -9,7 +9,7 @@
   "/home/work/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk" 1678791942 19056 1c426b894b251ca839a9d28a140de5d7 ""
   "/home/work/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk" 1678769529 26208 9fc8c0d5dba9641c363c38e07ac4aca6 ""
   "/home/work/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1095.600pk" 1678769525 35180 1fe0968e5ff5585af38550d0ba0a0c2a ""
-  "/home/work/Documents/goldblatt hyperreals/goldblatt.tex" 1682798599 59161 58b293259223a0838740233609487e1d ""
+  "/home/work/Documents/goldblatt hyperreals/goldblatt.tex" 1682957875 65906 77c1c6f3949ae2f5af97cc6f87061517 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/eccc1095.tfm" 1136768653 3072 1b1df026a15993ee98d265b49cf8d5f2 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/eccc1200.tfm" 1136768653 3072 1e3dcc56ea731d0f3645bbefe8c8608c ""
@@ -274,10 +274,10 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1678247832 128028 f533b797fba58d231669ea19e894e23e ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1678247840 1405643 a227008aadaf86a78d7cf69d203680e9 ""
-  "goldblatt.aux" 1682798601 1915 6c7669e3db4dbf2a10f1c685de63e06a "pdflatex"
-  "goldblatt.out" 1682798601 1066 8e037abfd2c2b8ef34d7adf442f2ee34 "pdflatex"
-  "goldblatt.tex" 1682798599 59161 58b293259223a0838740233609487e1d ""
-  "goldblatt.toc" 1682798601 491 af36e52ee1b24fd4d0b7714c60495845 "pdflatex"
+  "goldblatt.aux" 1682957877 1915 c8d720b4b65b4266410af533c220c2ba "pdflatex"
+  "goldblatt.out" 1682957877 1066 8e037abfd2c2b8ef34d7adf442f2ee34 "pdflatex"
+  "goldblatt.tex" 1682957875 65906 77c1c6f3949ae2f5af97cc6f87061517 ""
+  "goldblatt.toc" 1682957877 491 af36e52ee1b24fd4d0b7714c60495845 "pdflatex"
   "mcode.sty" 1678660365 10751 a55df75213af123b13601aed162b164b ""
   "quiver.sty" 1678660309 1606 b07b3961e34ab8ddf2aa4cb10fd701dc ""
   (generated)

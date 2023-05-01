@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.3.8)  30 APR 2023 01:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.3.8)  1 MAY 2023 21:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -824,34 +824,33 @@ Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 \c@LT@chunks=\count353
 \LT@p@ftn=\toks58
 )
-\c@theorem=\count354
-\c@exercise=\count355
+\c@exercise=\count354
  (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 )
-\c@innercustomgeneric=\count356
-\c@thm=\count357
+\c@innercustomgeneric=\count355
+\c@thm=\count356
  (./goldblatt.aux)
 \openout1 = `goldblatt.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 122.
+LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 122.
+LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 122.
+LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 122.
+LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 122.
+LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 122.
+LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 122.
+LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 122.
+LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 122.
+LaTeX Font Info:    ... okay on input line 122.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -889,16 +888,16 @@ LaTeX Font Info:    ... okay on input line 124.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count358
+\scratchcounter=\count357
 \scratchdimen=\dimen333
 \scratchbox=\box111
-\nofMPsegments=\count359
-\nofMParguments=\count360
+\nofMPsegments=\count358
+\nofMParguments=\count359
 \everyMPshowfont=\toks59
-\MPscratchCnt=\count361
+\MPscratchCnt=\count360
 \MPscratchDim=\dimen334
-\MPnumerator=\count362
-\makeMPintoPDFobject=\count363
+\MPnumerator=\count361
+\makeMPintoPDFobject=\count362
 \everyMPtoPDFconversion=\toks60
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -912,8 +911,8 @@ Package grfext Info: Graphics extension search list:
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-\c@lstlisting=\count364
-Package hyperref Info: Link coloring OFF on input line 124.
+\c@lstlisting=\count363
+Package hyperref Info: Link coloring OFF on input line 122.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -921,23 +920,23 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count365
+\c@section@level=\count364
 )
-LaTeX Info: Redefining \ref on input line 124.
-LaTeX Info: Redefining \pageref on input line 124.
-LaTeX Info: Redefining \nameref on input line 124.
+LaTeX Info: Redefining \ref on input line 122.
+LaTeX Info: Redefining \pageref on input line 122.
+LaTeX Info: Redefining \nameref on input line 122.
  (./goldblatt.out) (./goldblatt.out)
 \@outlinefile=\write6
 \openout6 = `goldblatt.out'.
 
  (/usr/share/texlive/texmf-dist/tex/generic/xypic/xyps-ps.tex)
 
-Xy-pic Warning: The produced DVI file is NOT PORTABLE [goldblatt:124]:
+Xy-pic Warning: The produced DVI file is NOT PORTABLE [goldblatt:122]:
  It contains <driver> `Textures' \specials for the `PostScript' extension.
 
 (/usr/share/texlive/texmf-dist/tex/generic/xypic/xyps-c.tex (/usr/share/texlive/texmf-dist/tex/generic/xypic/xyps-s.tex))
 
-Xy-pic Warning: The produced DVI file is NOT PORTABLE [goldblatt:124]:
+Xy-pic Warning: The produced DVI file is NOT PORTABLE [goldblatt:122]:
  It contains <driver> `Textures' \specials for the `color' extension.
 
 (/usr/share/texlive/texmf-dist/tex/generic/xypic/xyps-r.tex) (/usr/share/texlive/texmf-dist/tex/generic/xypic/xyps-l.tex) (/usr/share/texlive/texmf-dist/tex/generic/xypic/xyps-f.tex) (/usr/share/texlive/texmf-dist/tex/generic/xypic/xyps-pro.tex
@@ -1126,29 +1125,29 @@ Chapter 1.
 
 ]
 Chapter 2.
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 169.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 167.
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 169.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 167.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 169.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 167.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 204--207
+Underfull \hbox (badness 10000) in paragraph at lines 202--205
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 204--207
+Underfull \hbox (badness 10000) in paragraph at lines 202--205
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 208--209
+Underfull \hbox (badness 10000) in paragraph at lines 206--207
 
  []
 
@@ -1157,34 +1156,34 @@ Chapter 3.
 [7
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 285--288
+Underfull \hbox (badness 10000) in paragraph at lines 283--286
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 300--305
+Underfull \hbox (badness 10000) in paragraph at lines 298--303
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 306--308
+Underfull \hbox (badness 10000) in paragraph at lines 304--306
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 309--311
+Underfull \hbox (badness 10000) in paragraph at lines 307--309
 
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 366--367
+Underfull \hbox (badness 10000) in paragraph at lines 364--365
 
  []
 
 [9] [10]
 Chapter 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 427--428
+Underfull \hbox (badness 10000) in paragraph at lines 425--426
 
  []
 
@@ -1195,7 +1194,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 427--428
 ]
 Chapter 5.
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 511--513
+Underfull \hbox (badness 10000) in paragraph at lines 509--511
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 512--513
 
  []
 
@@ -1210,18 +1214,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 516--517
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 518--519
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 545--547
+Underfull \hbox (badness 10000) in paragraph at lines 543--545
 
  []
 
 [14]
-Overfull \hbox (19.00725pt too wide) in paragraph at lines 548--549
+Overfull \hbox (19.00725pt too wide) in paragraph at lines 546--547
 []\T1/cmr/m/n/10.95 (b) Since $[] \OML/cmm/m/it/10.95 " \OT1/cmr/m/n/10.95 = []$\T1/cmr/m/n/10.95 , we have $[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 cos"\OT1/cmr/m/n/10.95 ) = [][] = [] = [] =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 546--547
+
  []
 
 
@@ -1240,55 +1244,75 @@ Underfull \hbox (badness 10000) in paragraph at lines 552--553
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 554--555
+Underfull \hbox (badness 10000) in paragraph at lines 588--590
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 590--592
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 593--594
+Underfull \hbox (badness 10000) in paragraph at lines 591--592
 
  []
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 603--604
+Underfull \hbox (badness 10000) in paragraph at lines 601--602
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 605--606
+Underfull \hbox (badness 10000) in paragraph at lines 603--604
 
  []
 
 [16]
 Chapter 6.
 
-Underfull \hbox (badness 10000) in paragraph at lines 655--657
+Underfull \hbox (badness 10000) in paragraph at lines 653--655
 
  []
 
 [17
 
 ] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 721--726
+Underfull \hbox (badness 10000) in paragraph at lines 719--724
 
  []
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 779--780
+Underfull \hbox (badness 10000) in paragraph at lines 781--782
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 786--788
+Underfull \hbox (badness 10000) in paragraph at lines 788--790
 
  []
 
-[20] [21]
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 806--807
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 808--809
+
+ []
+
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 843--844
+
+ []
+
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 858--859
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 866--867
+
+ []
+
+[23]
 Xy-pic Warning: The produced DVI file is NOT PORTABLE:
  It contains <driver> `Textures' \specials for the `PostScript' extension.
  It contains <driver> `Textures' \specials for the `color' extension.
@@ -1297,18 +1321,18 @@ Package rerunfilecheck Info: File `goldblatt.out' has not changed.
 (rerunfilecheck)             Checksum: 8E037ABFD2C2B8EF34D7ADF442F2EE34;1066.
  ) 
 Here is how much of TeX's memory you used:
- 31865 strings out of 480247
- 615589 string characters out of 5896152
- 1402539 words of memory out of 5000000
- 49088 multiletter control sequences out of 15000+600000
+ 31861 strings out of 480247
+ 615556 string characters out of 5896152
+ 1401387 words of memory out of 5000000
+ 49077 multiletter control sequences out of 15000+600000
  487057 words of font info for 75 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  129i,15n,132p,1219b,1046s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/work/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/work/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1095.600pk> </home/work/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrb2074.600pk> </home/work/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </home/work/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrb1095.600pk> </home/work/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrb2488.600pk> </home/work/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1200.600pk> </home/work/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc2488.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on goldblatt.pdf (21 pages, 291523 bytes).
+Output written on goldblatt.pdf (23 pages, 301504 bytes).
 PDF statistics:
- 559 PDF objects out of 1000 (max. 8388607)
- 257 compressed objects within 3 object streams
- 89 named destinations out of 1000 (max. 500000)
+ 576 PDF objects out of 1000 (max. 8388607)
+ 269 compressed objects within 3 object streams
+ 96 named destinations out of 1000 (max. 500000)
  61 words of extra memory for PDF output out of 10000 (max. 10000000)
 
