@@ -50,12 +50,10 @@
 
 
 \theoremstyle{plain}
-\newtheorem{theorem}{Proposition}[section]
-\newtheorem{proposition}[theorem]{Proposition}
 
-\newtheorem{question}[theorem]{Question}
 \newtheorem{exercise}{Exercise}[chapter]
-\newtheorem{problem}[theorem]{Problem}
+\newtheorem*{theorem1}{Theorem 1}
+\newtheorem*{notation}{Notation}
     
 \renewcommand{\thesubsection}{\thesection.\alph{subsection}}
 
@@ -759,7 +757,11 @@
   \end{exercise}
   \begin{proof}
     Consider the sequence $(s_n)$ defined as $(s_n)=(1/n)$. Clearly for any unlimited $n$, $a_n$ is infinitisimal. However, notice that 
-
+    \begin{align*}
+      \sum_{n=1}^\infty \frac{1}{n} &\geq 1+\sum_{n=1}^\infty \sum_{k=1}^{2^{n-1}} \frac{1}{n} \\
+      &\geq 1+\sum_{n=1}^\infty \frac{1}{2}
+    \end{align*}
+    Since the last series is divergent, so is $\sum_{n=1}^\infty \frac{1}{n}$.
   \end{proof}
 
   \begin{exercise}
@@ -798,11 +800,75 @@
 
   \begin{exercise}
     (Section 6.11, III)
-    Suppose that $a_i \geq 0$ for all $i \in \N$. Prove that $\sum_{1}^\infty$ converges iff $\sum_{1}^n a_i$ is limited for all unlimited $n$, and that this holds iff $\sum_{1}^n a_i$ is limited for some unlimted $n$.
+      Suppose that $a_i \geq 0$ for all $i \in \N$. Prove that $\sum_{1}^\infty$ converges iff $\sum_{1}^n a_i$ is limited for all unlimited $n$, and that this holds iff $\sum_{1}^n a_i$ is limited for some unlimted $n$.
   \end{exercise}
   \begin{proof}
-    First we prove $(1) \Rightarrow (2)$. Suppose $\sum_{1}^\infty a_i$ converges to a real number $L$. Therefore, we must have $\sum_{1}^N a_i \simeq L$ for all unlimited $N$ but that means $\sum_{1}^N a_i$ is limited. The direction $(2) \Rightarrow (3)$ is easy to see.
+      First we prove $(1) \Rightarrow (2)$. Suppose $\sum_{1}^\infty a_i$ converges to a real number $L$. Therefore, we must have $\sum_{1}^N a_i \simeq L$ for all unlimited $N$ but that means $\sum_{1}^N a_i$ is limited. The direction $(2) \Rightarrow (3)$ is easy to see. \\
+
+      We prove $(3) \Rightarrow (2)$. Let $n \in \N$. Then we know that there exists $m \in \hyp \N$ such that $m>n$ and $\sum_{1}^m a_i \leq L+1$ where $L$ is the shadow of the limited extended term. Trasnfering it, we see that for any $n \in \N$, there exists $m \in \N$ such that $m>n$ and $\sum_{1}^m a_i \leq L+1$. Since $a_i \geq 0$ for all $i \in \N$, we have $\left| \sum_{1}^m a_i \right|=\sum_{1}^m |a_i| \leq L+1$. Hence, the sequence of partial sum is bounded which implies all extended term are limited by theorem 6.4.1. \\
+
+      We prove $(2) \Rightarrow (1)$. Since $\sum_{1}^n a_i$ is limited for all unlimited $n$, by theorem 6.4.1, we know that sequence of partial sum is bounded. Also notice that since $a_i \geq 0$, for each $n \in \N$, $\sum_{1}^n a_i \leq \sum_{1}^{n+1} a_i$. Therefore, the sequence of partial sums is non decreasing. Hence, by theorem 6.2.1, we know it is convergent. 
   \end{proof}
+
+  \begin{exercise}
+    (Section 6.11, IV) Comparison test. \\
+      Let $\sum_{1}^\infty a_i$ and $\sum_{1}^\infty b_i$ be two real series of non negative terms, with $\sum_{1}^\infty b_i$ convergent. If $a_i \leq b_i$ for all $i \in \N$, use result (III) to show that $\sum_{1}^\infty a_i$ is convergent.
+  \end{exercise}
+  \begin{proof}
+      Since $a_i \leq b_i$ for all $i \in \N$, by transfer, we know $a_n \leq b_n$ for all unlimited $n$. By exercise (III), it follows $\sum_{1}^n b_i$ is limited for all unlimited $n$ but that means $\sum_{1}^n a_i$ is also limited for all unlimited $n$, and thus by exercise (III), is convergent.
+  \end{proof}
+\newpage
+  \begin{exercise}
+    (Section 6.11, V)
+      Show that the comparison test holds under the weaker assumption that $a_n \leq b_n$ for all unlimited $n$. Show that this weaker assumption is equivalent to requiring that there be some limited $k \in \N$ with $a_n \leq b_n$ fora all $n \geq k$.
+  \end{exercise}
+  \begin{proof}
+      For the first part, notice that since $a_n \leq b_n$ for all unlimited $n$, we have $$ \sum_{m}^n a_i \leq \sum_{m}^n b_i \simeq \sh \left(\sum_{m}^n b_i \right)=0$$ for any unlimited $m,n$ with $m \leq n$, because $\sum_{1}^\infty b_i$ is convergent. However, since $ \sum_{m}^n a_i$ is finite, we have $\sh \left(\sum_{m}^n a_i \right)\leq 0$. Since partial sums of $a_i$ is non-decreasing sequence of non-negative terms, it follows $0 \leq \sum_{1}^n a_i-\sum_{1}^{m-1} a_i=\sum_{m}^n a_i$ which gives us $0=\sh \left(\sum_{m}^n a_i \right) \simeq \sum_{m}^n a_i$. Hence, by cauchy converegence criterion, we know that $\sum_{1}^\infty a_i$ converges. 
+
+      For the second part, we know there exists $k \in \hyp \N$ such that for any all $n \geq k$, $a_n \leq b_n$ i.e. when $k$ is unlimited. Transfering it, we get the desired result. For converse, we know for any $n \geq k$, $a_n \leq b_n$. Transfering it, we have for any $n \in \hyp \N$ such that $n \geq k$, $a_n \leq b_n$ but then since $k$ is limited, the inequality holds for all unlimited numbers. 
+  \end{proof}
+
+  \begin{exercise}
+    (Section 6.11, VI)
+    Let $\sum_{1}^\infty a_i$ and $\sum_1^\infty b_i$ be two series of positive terms such tha the sequence $\la a_i/b_i : i \in \N \ra$ is convergent in $\R$. Deduce that either both series converge, or both diverge.
+  \end{exercise}
+  \begin{proof} 
+    \begin{notation}{}
+      Define $\la s\ra=\la a_i/b_i : i \in \N \ra$ and $L=\lim_{n \arr \infty} s$.
+    \end{notation}
+    We claim that the following result is true. 
+    \begin{theorem1}
+      If $\sum_{1}^\infty a_i$ and $\sum_1^\infty b_i$ be two series of positive terms such that the sequence $\la a_i/b_i : i \in \N \ra$ is convergent in $\R$ Then for any unlimited $m$ and $n$ it follows that $$ \sum_{m}^n a_i \text{ is infinitesimal if and only if } \sum_{m}^n b_i \text{ is infinitesimal.} $$
+    \end{theorem1}
+    Assuming this claim for the moment, it follows from cauchy's convergence criterion that $\sum_{1}^\infty a_i$ is convergent if and only if $\sum_{1}^\infty b_i$ is convergent, which is the first part of the problem. \\
+
+    We prove our claim now. Suppose $\sum_{m}^n a_i$ is infintisimal for all unlimited $m$ and $n$ with $n \geq m$. Since the sequence $\la s \ra$ is convergent, we have $b_N \simeq 1/L \cdot a_N$ for any unlimited $N$. Thus, $$\sum_{m}^n b_i\simeq \sum_{i=m}^n (1/L \cdot a_i)=1/L \cdot \sum_{i=m}^n a_i$$ which is known to be infintisimal. The other direction can be proved by identical arguement considering $a_N \simeq L b_N$ for any unlimited $N$.
+
+    We can apply the same chain of thought for proving divergence. Recall that a sequence is divergent if all of it's extended term are unlimted. Since we have $a_N \simeq L b_N$, it follows immediately that if one of them is divergent then so is the other.
+  \end{proof}
+\newpage
+  \begin{exercise}
+    (Section 6.11, VII)
+    Let $c \in \R$. Recall the identity \begin{align}
+      1+c+c^2+\cdots+c^n=\frac{1-c^n+1}{1-c}.
+    \end{align} 
+    (a) Considering the case of unlimited $n$, show that the series $\sum_{1}^\infty c^i$ converges if $|c|<1$. \\
+    (b) Show that $\sum_{m}^n c^i$ is infintisimal when $m$ and $n$ are unlimited, either by applying result (a) or by making further use of the above inequality.
+  \end{exercise}
+  \begin{proof} $ $ \\
+
+    (a) If $c=0$ then the proposition is trivially true, so suppose $c \not =0$ for what follows. We claim the following result is true. 
+      \begin{theorem1}
+        For any $c \in \R$ such that $0<|c|<1$, the series $\sum_{1}^\infty |c^i|$ converges.
+      \end{theorem1}
+
+      Before we get to the proof, we see that if the theorem 1 is true then the series $\sum_{1}^\infty c^i$ is convergent because it is absolutely convergent which is what we desire. \\
+      We begin the proof by noticing that $\la |c^i| \ra = \la |c|^i \ra$ for $0<c<1$ is a non increasing sequence with a lower bound, and thus by montone convergence theorem, is convergent. Let $L=\lim |c|^n$ and consider some unlimited $N$. Then applying transfer on the identity 6.1, we have $$\sum_{1}^N |c|^i=\frac{1-|c|^{N+1}}{1-|c|}-1 \simeq \frac{1-L}{1-|c|}-1$$ which is clearly limited. Therefore, it follows that $\sum_{1}^\infty c^i$ is convergent when $|c|<1$. \\
+
+      (b) We are going to give alternative proof to it instead of using part (a). Again we will prove that $\sum_{1}^\infty c^i$ is absolutely convergent. We already know that the sequence $\la |c^i| \ra = \la |c|^i \ra$ for $0<c<1$ is convergent. Let $L=\lim |c^i|$. Then we have $$\sum_{m}^n |c^i|=\sum_{1}^n |c^i|-\sum_{1}^m |c_i| \simeq \frac{1-L}{1-c}-\frac{1-L}{1-c}=0.$$
+  \end{proof}
+
+  
   
 
 \end{document}
