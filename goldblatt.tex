@@ -54,7 +54,9 @@
 \newtheorem{exercise}{Exercise}[chapter]
 \newtheorem*{theorem1}{Theorem 1}
 \newtheorem*{notation}{Notation}
-    
+\newtheorem*{corollary1.1}{Corollary 1.1}
+\newtheorem*{theorem2}{Theorem 2}
+\newtheorem*{corollary2.1}{Corollary 2.1}
 \renewcommand{\thesubsection}{\thesection.\alph{subsection}}
 
 
@@ -114,6 +116,7 @@
 \newcommand{\hal}{\text{hal}}
 \newcommand{\gal}{\text{gal}}
 \newcommand{\sh}{\text{sh}}
+
 
   \setlength{\parindent}{0pt}
  
@@ -868,7 +871,87 @@
       (b) We are going to give alternative proof to it instead of using part (a). Again we will prove that $\sum_{1}^\infty c^i$ is absolutely convergent. We already know that the sequence $\la |c^i| \ra = \la |c|^i \ra$ for $0<c<1$ is convergent. Let $L=\lim |c^i|$. Then we have $$\sum_{m}^n |c^i|=\sum_{1}^n |c^i|-\sum_{1}^m |c_i| \simeq \frac{1-L}{1-c}-\frac{1-L}{1-c}=0.$$
   \end{proof}
 
-  
+  \begin{exercise}
+    (Section 6.11, VIII) Ratio test: Convergence. \\
+    Suppose that $$\limsup_{i \arr \infty} \frac{|a_{i+1}|}{|a_i|}<1$$ in $\R$. Prove that the series $\sum_{1}^\infty a_i$ is absoultely convergent.
+  \end{exercise}
+  \begin{proof}
+    We will prove the series $\sum_{1}^\infty a_i$ is absoultely convergent by demonstrating that difference of partial sum of sequence is always less than or equal to difference of partial sum of a convergent sequence which will show that difference of partial sum of our sequence gets infinitely close eventually. We start off by proving the following theorem. 
+    \begin{theorem1}
+      Suppose that $\limsup_{i \arr \infty} \frac{|a_{i+1}|}{|a_i|}<1$ in $\R$. Then there exists a positive real $c<1$ with $|a_{n+1}|<c|a_n|$ for all unlimited $n$.
+    \end{theorem1}
+      Before we discuss the proof of it, there is an interesting corollary which follows from this. If theorem-1 is true for all unlimited numbers then by easy trasnfer, we must have $|a_{n+1}|<c|a_n|$ for all but finitely many $n \in \N$. 
+
+      We will now prove theorem-1. If $a_i=0$ for any $i \in \N$ then $\frac{|a_{i+1}|}{|a_i|}$, i.e. the ith term of the sequence, become undefined. Therefore, we must have $a_i \not = 0$ for any $i \in \N$. Thus, $0<\frac{|a_{n+1}|}{|a_n|}$ for all $n \in \N$. Let $N$ be arbitrary unlimited natural number. Then we have $0<\frac{|a_{N+1}|}{|a_N|} \leq \limsup_{i \arr \infty} \frac{|a_{i+1}|}{|a_i|}<1$. Let $L=\limsup_{i \arr \infty} \frac{|a_{i+1}|}{|a_i|}$. Define $c=\frac{L+1}{2}$. Then we have $0<\frac{|a_{N+1}|}{|a_N|}<c$. Thus, $|a_{N+1}|<c |a_N|$. Since $N$ was arbitrary, we have our result.
+      \begin{corollary1.1} 
+        There is some limited $k \in \N$ such that $|a_{n+1}|<c|a_n|$ for all $n \geq k$.
+      \end{corollary1.1}
+
+      \begin{theorem2}
+        Suppose that $\limsup_{i \arr \infty} \frac{|a_{i+1}|}{|a_i|}<1$ in $\R$. Then there is some $k$ such that for all $n \geq k$, we have $|a_{k+n}|<c^n |a_k|$, and hence $\sum_{k+m}^{k+n} |a_i| \leq \sum_{m}^n c^i |a_k|$.
+      \end{theorem2}
+
+      The existence of such a $k$ is guranteed by corollary 1.1, furthermore, it also implies $$|a_{k+n}|< c |a_{k+n-1}|<c^2 |a_{k+n-2}<\cdots < c^n |a_{k+n-n}|=c^n |a_k|.$$
+
+      Thus, $|a_{k+n}|<c^n |a_k|$. It is easy to see that the last inequalitiy implies $$0< \sum_{k+m}^{k+n} |a_i| 
+      \leq \left( \sum_{m}^n c^i \right) |a_k|.$$
+
+      By an easy transfer we see that the last inequality also hold in hyperreals. However, by exercise VII, we know that $\sum_{m}^n c^i$ is infinitesimal for any unlimited $n$ and $m$ such that $n\geq m$ but that means $\sum_{k+m}^{k+n} |a_i|$ is infinitesimal for any unlimited $m$ and $n$. In particular, replacing $m$ by $m-k$ and $n$ by $n-k$, we get the following result. 
+      
+      \begin{corollary2.1}
+        $\sum_{1}^\infty |a_i|$ is convergent, that is to say, $\sum_{1}^\infty a_i$ is absolutely convergent.
+      \end{corollary2.1}
+  \end{proof}
+
+  \begin{exercise}
+    (Section 6.11, IX) Ratio Test: divergence. \\
+    Suppose that $$\liminf_{i \arr \infty} \frac{|a_{i+1}|}{|a_i|}>1$$
+    in $\R$. Prove that the series $\sum_{1}^\infty a_i$ diverges.
+  \end{exercise}
+  \begin{proof}
+    Before we get into the proof, notice that $a_i \not = 0$ for any $i \in \N$ since otherwise $\frac{|a_{i+1}|}{|a_i|}$ becomes undefined. Consider some unlimited $n$. Then we have $$1<\liminf_{i \arr \infty} \frac{|a_{i+1}|}{|a_i|} \leq \frac{|a_{N+1}|}{|a_N|}, $$ 
+    which implies $|a_{N+1}|>|a_N|$. We summarize it into a theorem. 
+    \begin{theorem1}
+      Suppose that $\liminf_{i \arr \infty} \frac{|a_{i+1}|}{|a_i|}>1$. Then $a_i \not =0$ for any $i \in \N$ and $|a_{N+1}|>|a_N|$ for any unlimited $N$. 
+    \end{theorem1}
+    Next we prove the following result. 
+    \begin{theorem2}
+      Suppose that $\liminf_{i \arr \infty} \frac{|a_{i+1}|}{|a_i|}>1$. Then there exists $k \in \N$ such that for all $m>n$, $|a_m|>|a_k$.
+    \end{theorem2}
+     In natural numbers, we know that for any $n,m \in \N$, there is some $p \in \N$ such that if $m>n$ then $m=n+p$. Therefore, by transfer, it is also true in hypernaturals. In particular, it holds for unlimited numbers. Let $m$ and $n$ be unlimited numbers such that $m>n$. Then, by theorem-1, it follows $$|a_m|=|a_{n+p}|>|a_{(n+p)-1}|>\cdots >|a_{n+1}|>|a_n|.$$
+    Trasnfering $(\exists n \in \hyp \N)(\forall m \in \hyp \N)(m>n \arr |a_m|>|a_n|)$ back to $\N$, we have our result. \\
+
+    By existential transfer, we have following corollary to be true. 
+    \begin{corollary2.1}
+      For all unlimited $n$, $|a_n|>|a_k|$.
+    \end{corollary2.1}
+
+    For the sake of contradiction, assume $\sum_{1}^\infty a_i$ is convergent. Therefore, for any unlimited $N$, we must have $\sum_{1}^{N+1} a_i - \sum_{1}^{N} a_i \simeq 0$ but then it implies $$0<|a_k|<|a_{N+1}|=\sum_{1}^{N+1} a_i - \sum_{1}^{N} a_i \simeq 0$$
+    which means $0<|a_k| \leq 0$. A contradiction.
+  \end{proof}
+
+  \begin{exercise}
+    (Section 6.11, X)
+     Show that for any real number $x$, the hyperreal $x^n/n!$ is infinitesimal when $n$ is unlimited.
+  \end{exercise}
+  \begin{proof}
+    Define $a_i=(x^i/i!)$. We will first prove that $\sum_{1}^\infty a_i$ is convergent which would easily get us $\sum_{n-1}^n a_i= \sum_{n-1}^n x^i/i!=x^n/n!$ to be infintisimal. For any unlimited $N$, we have $\frac{(x^{N+1}/(N+1)!)}{(x^N/N!)}=\frac{x}{N+1}$ which is clearly infinitesimal. It means that $\limsup_{i \arr \infty} \frac{|a_{i+1}|}{|a_i|}<1$. Threfore, by ratio test, it follows $\sum_{1}^{\infty} a_i$ is convergent. Hence, $\sum_{m}^n a_i$ is infinitesimal for any unlimited $m$ and $n$ such that $n \geq m$. In particular, setting $m=n-1$ gets us $\sum_{n-1}^n a_i= \sum_{n-1}^n x^i/i!=x^n/n!$ to be infinitesimal. 
+  \end{proof}
+
+  \begin{exercise}
+    (Section 6.11, XI) Leibniz's alternating series test. \\
+    Suppose $\la a_i: i \in \N \ra$ is a real sequence that is nonincreasing (i.e. $a_i \geq a_{i+1}$) and converges to $0$. Prove that the alternating series $$\sum_{1}^\infty (-1)^{i+1} a_i=a_1-a_2+a_3-a_4+\cdots $$ converges. 
+  \end{exercise}
+  \begin{proof}
+    We first make the observation that all the terms in the sequence are positive since otherwise it would not be convergent to $0$. We are going to first prove $\left| \sum_{m}^n (-1)^{i+1} a_i \right| \leq |a_m|$ for $m,n \in \N$ from which our result easily follow using the transfer principle and shadow inequalitiy. 
+
+    \begin{theorem1}
+      Suppose $\la a_i: i \in \N \ra$ is a real sequence that is nonincreasing (i.e. $a_i \geq a_{i+1}$) and converges to $0$. Then for all $m,n \in \N$ such that $n\geq m$, we have $$\left| \sum_{m}^n (-1)^{i+1} a_i \right| \leq |a_m|$$ to be true.
+    \end{theorem1}
+    We divide the proof into  cases. \\
+    First suppose $m$ is even. Then we have $$ \sum_{m}^n (-1)^{i+1} a_i=\sum_{\substack{m \leq i \leq n \\ i \text{ is even }}} (-a_i+a_{i+1})=\sum_{\substack{m \leq i \leq n-1  \\ i \text{ is even }}} (-a_i+a_{i+1})<0 <a_m$$ and $$-a_m<(a_n - a_m)+ \sum_{\substack{m+1 \leq i \leq n-1  \\ i \text{ is odd }}} (a_i-a_{i+1})=\sum_{m}^n (-1)^{i+1} a_i$$ when $n$ is odd because $a_n<a_m$ and $a_{i+1}<a_i$ for each $i$. In case of $n$ being even, consider $$\sum_{\substack{m \leq i \leq n-1  \\ i \text{ is even }}} (-a_i+a_{i+1})-a_n<\sum_{\substack{m \leq i \leq n-1  \\ i \text{ is even }}} (-a_i+a_{i+1})<0<a_m$$ and $$-a_m<- a_m+ \sum_{\substack{m+1 \leq i \leq n  \\ i \text{ is odd }}} (a_i-a_{i+1})=\sum_{m}^n (-1)^{i+1} a_i$$ \\
+    Similarly, in case of $m$ being odd, we have $$-a_m<0< \sum_{\substack{m \leq i \leq n \\ i \text{ is odd}}} (a_i-a_{i+1}) =\sum_{m}^n (-1)^{i+1} a_i$$ and $$\sum_{m}^n (-1)^{i+1} a_i=a_m-a_n+\sum_{\substack{m-1 \leq i \leq n-1 \\ i \text{ is even }}} (-a_i+a_{i+1})<a_m$$ when $n$ is even. In case of $n$ being odd, consider $$-a_m<0<\sum_{\substack{m \leq i \leq n-1 \\ i \text{ is odd}}} (a_i-a_{i+1})<\sum_{\substack{m \leq i \leq n-1 \\ i \text{ is odd}}} (a_i-a_{i+1})+a_n=\sum_{m}^n (-1)^{i+1} a_i$$ and $$\sum_{m}^n (-1)^{i+1} a_i=a_m+\sum_{\substack{m-1 \leq i \leq n \\ i \text{ is even }}} (-a_i+a_{i+1})<a_m. $$ This concludes the proof of theorem 1. By an easy transfer, we know that theorem 1 also holds in hypernautrals. Therefore, $\sum_{m}^n (-1)^{i+1} a_i$ is infintisimal in case of unlimited $m$. Hence, by cauchy convergence theorem, it follows $\sum_{1}^\infty (-1)^{i+1} a_i$ converges.
+  \end{proof}
   
 
 \end{document}
