@@ -1,4 +1,4 @@
-\documentclass[a4paper, 11pt]{book}
+\documentclass[a4paper, 11pt, openany]{book}
 \usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
 \usepackage{lipsum} %This package just generates Lorem Ipsum filler text. 
 \usepackage{fullpage} % changes the margin
@@ -110,12 +110,14 @@
 \newcommand{\od}{\odot}
 \newcommand{\p}{\prime}
 \newcommand{\ep}{\varepsilon}
+\newcommand{\eps}{\epsilon}
 \newcommand{\del}{\delta}
 \newcommand{\hyp}{{}^*}
 \newcommand{\dom}{\text{dom }}
 \newcommand{\hal}{\text{hal}}
 \newcommand{\gal}{\text{gal}}
 \newcommand{\sh}{\text{sh}}
+\newcommand{\Del}{\Delta}
 
 
   \setlength{\parindent}{0pt}
@@ -946,6 +948,515 @@
     First suppose $m$ is even. Then we have $$ \sum_{m}^n (-1)^{i+1} a_i=\sum_{\substack{m \leq i \leq n \\ i \text{ is even }}} (-a_i+a_{i+1})=\sum_{\substack{m \leq i \leq n-1  \\ i \text{ is even }}} (-a_i+a_{i+1})<0 <a_m$$ and $$-a_m<(a_n - a_m)+ \sum_{\substack{m+1 \leq i \leq n-1  \\ i \text{ is odd }}} (a_i-a_{i+1})=\sum_{m}^n (-1)^{i+1} a_i$$ when $n$ is odd because $a_n<a_m$ and $a_{i+1}<a_i$ for each $i$. In case of $n$ being even, consider $$\sum_{\substack{m \leq i \leq n-1  \\ i \text{ is even }}} (-a_i+a_{i+1})-a_n<\sum_{\substack{m \leq i \leq n-1  \\ i \text{ is even }}} (-a_i+a_{i+1})<0<a_m$$ and $$-a_m<- a_m+ \sum_{\substack{m+1 \leq i \leq n  \\ i \text{ is odd }}} (a_i-a_{i+1})=\sum_{m}^n (-1)^{i+1} a_i$$ \\
     Similarly, in case of $m$ being odd, we have $$-a_m<0< \sum_{\substack{m \leq i \leq n \\ i \text{ is odd}}} (a_i-a_{i+1}) =\sum_{m}^n (-1)^{i+1} a_i$$ and $$\sum_{m}^n (-1)^{i+1} a_i=a_m-a_n+\sum_{\substack{m-1 \leq i \leq n-1 \\ i \text{ is even }}} (-a_i+a_{i+1})<a_m$$ when $n$ is even. In case of $n$ being odd, consider $$-a_m<0<\sum_{\substack{m \leq i \leq n-1 \\ i \text{ is odd}}} (a_i-a_{i+1})<\sum_{\substack{m \leq i \leq n-1 \\ i \text{ is odd}}} (a_i-a_{i+1})+a_n=\sum_{m}^n (-1)^{i+1} a_i$$ and $$\sum_{m}^n (-1)^{i+1} a_i=a_m+\sum_{\substack{m-1 \leq i \leq n \\ i \text{ is even }}} (-a_i+a_{i+1})<a_m. $$ This concludes the proof of theorem 1. By an easy transfer, we know that theorem 1 also holds in hypernautrals. Therefore, $\sum_{m}^n (-1)^{i+1} a_i$ is infintisimal in case of unlimited $m$. Hence, by cauchy convergence theorem, it follows $\sum_{1}^\infty (-1)^{i+1} a_i$ converges.
   \end{proof}
+\chapter{Continuous Functions} 
+
+  \begin{exercise}
+    (Section 7.4, I)
+      Derive the following characterisations from standard definition of limits. \\
+      (a) $\lim_{x \arr c^+} f(x)=L$ iff $f(x) \simeq L$ for all $x \in \hyp A$ with $x \simeq c$ and $x>c$. \\
+      (b) $\lim_{x \arr c^-} f(x)=L$ iff $f(x) \simeq L$ for all $x \in \hyp A$ with $x<c$. \\
+      (c) $\lim_{x \arr c} f(x)=L$ iff $f(x) \simeq L$ for all $x \in \hyp A$ with $x \simeq c$ and $x \not =0$. \\
+      (d) $\lim_{x \arr c} f(x)=+ \infty$ iff $f(x) \in \hyp \R_\infty^+$ for all $x \in \hyp A$ with $x \simeq c$ and $x \not = c$. \\
+      (e) $\lim_{x \arr c} f(x) = -\infty$ iff $f(x) \in \hyp \R_\infty^-$ for all $x \in \hyp A$ with $x \simeq c$ and $x \not =c$. \\
+      (f) $\lim_{x \arr + \infty} f(x)=L$ iff $f(x) \simeq L$ for all positive unlimited $x \in \hyp A$ (and such $x$ exists). \\
+      (g) $\lim_{x \arr - \infty} f(x)=L$ iff $f(x) \simeq L$ for all positive unlimited $x \in \hyp A$ (and such $x$ exists).
+  \end{exercise}
+  \begin{proof} $ $ \\
+    (a) The definition of $\lim_{x \arr c^+} f(x)=L$ is 
+    \begin{align*}
+        (\forall \ep \in \R^+)(\exists \del \in \R^+ )(\forall x \in A)(c<x<c+\delta \arr |f(x)-L|<\ep) & & \text{(1)}
+    \end{align*}
+    First we prove the forward implication. Suppose (1) is true. Let $\ep \in \R^+$ be arbitrary. Then by (1) there is a positive $\del$ such that $$(\forall x \in A)(c<x<c+\delta \arr |f(x)-L|<\ep)$$ is true, and hence by universal transfer we have $$(\forall x \in \hyp A)(c<x<c+\delta \arr |f(x)-L|<\ep).$$ Now if $x \simeq c$ with $x>c$ then clearly $c<x<c+\del$ and so by last statement, $|f(x)-L|<\ep$. Since this holds for arbitrary $\ep \in \R^+$, it follows that $f(x) \simeq L$. Next we prove the converse implication. Suppose "$f(x) \simeq L$ for all $x \in \hyp A$ with $x \simeq c$ and $x>c$" is true. Let $\ep$ be a positive real. If $x \simeq c$ with $x>c$, there is a positive infinitismal $\del$ such that $x=c+\del$ but then it means $c<x<c+2\del$. Thus, by assumption, we have $f(x) \simeq L$ to be true. Replacing $2\del$ by existentially qunatified variable, this shows $$(\exists \del \in \hyp \R^+)(\forall x \in \hyp A)(c<x<c+\del \arr |f(x)-f(c)|<\ep)$$ is true. By existential transfer, we infer $$(\exists \del \in \R^+)(\forall x \in A)(c<x<c+\del \arr |f(x)-f(c)|<\ep)$$ which is enough to conclude (1). \\
+
+    (b) Essentially the same arguement as (a). \\
+
+    (c) The definition of $\lim_{x \arr c} f(x)=L$ is \begin{align*}
+      (\forall \ep \in \R^+)(\exists \del \in \R^+)(\forall x \in A)(|x-c|<\del \arr |f(x)-L|<\ep) & & \text{(1)}
+    \end{align*}
+    First we prove the forward implication. Let $\ep \in \R^+$ be arbitrary. Then by (1), there exists positive real $\del$ such that $$(\forall x \in A)(|x-c|<\del \arr |f(x)-L|<\ep)$$ holds and thus, by universal transfer, $$(\forall x \in \hyp A)(|x-c|<\del \arr |f(x)-L|<\ep)$$ is also true. Now if $x \simeq c$ with $x \neq c$ then clearly $|x-c|<\del$ and so $|f(x)-L|<\ep$. Since this holds for arbitrary $\ep$, we have $f(x) \simeq L$. Next we prove the converse implication. Suppose that "$f(x)\simeq L$ for all $x \in \hyp A$ with $x \simeq c$ and $x \neq c$" is true. Let $\ep \in \R^+$ be arbitrary. If $\del$ is an infinitesimal and $|x-c|<\del$ then clearly $x \simeq c$ with $x \neq c$. By our assumption, it implies $f(x) \simeq L$, and consequently $|f(x)-L|<\ep$. Replacing $\del$ by existentially quantified variable, we have $$(\exists \del \in \hyp \R^+)(|x-c|<\del \arr |f(x)-L|<\del)$$ to be true, and so by existential transfer, $$(\exists \del \in \R^+)(|x-c|<\del \arr |f(x)-L|<\ep)$$ is also true, which is enough to conclude (1).
+
+    (d) Recall that the definition of $\lim_{x \arr c} f(x) = + \infty$ is 
+    \begin{align*}
+      (\forall M \in \R^+)(\exists \del \in \R^+)(\forall x \in A)(0<|x-c|<\del \arr f(x)>M) & & \text{(1)}
+    \end{align*}
+    First we prove the forward implication. Suppose (1) is true. Let $M \in \R^+$ be arbitrary. Then by (1), there is a positive $\del$ such that $$(\forall x \in A)(0<|x-c|<\del \arr f(x)>M)$$ is true, and hence by universal transfer, we have $$(\forall x \in \hyp A)(0<|x-c|< \del \arr f(x)>M).$$ Now if $x \simeq c$ with $x \not = c$, then clearly $0<|x-c|<\del$. Therefore, we have $f(x)>M$. Since this holds for arbitrary $x$ and $M$, we have the desired result. Next we prove the converse implication. Suppose "$f(x) \in \R_\infty^+$ for all $x \in \hyp A$ with $x \simeq c$ and $x \not =c$" is true. Let $M$ be an arbitrary positive real. If $\del$ is any positive infinitisimal, then for any $x \in \hyp A$, if $0<|x-c|<\del$, we have $x \simeq c$ and $x \not = c$. Hence, $f(x) \in \hyp \R_\infty^+$ by our assumption, and so $f(x)>M$. Replacing $\del$ by existentially qunatified variable, this shows that the sentence $$(\exists \del \in \hyp \R^+)(\forall x \in \hyp A)(0<|x-c|<\del \arr f(x)>M)$$ is true. By existential transfer, we then infer $$(\exists \del \in \R^+)(\forall x \in A)(0<|x-c|<\del \arr f(x)>M)$$ and finally since $M$ was arbitrary, we conclude (1). 
+
+    (e) Essentially the same arguement as (d).
+
+    (f) Recall that the definition of $\lim_{x \arr + \infty} f(x)=L$ is \begin{align*}
+    (\forall \ep \in \R^+)(\exists \del \in \R^+)(\forall x \in A)(x>\del \arr |f(x)-L|<\ep) & & \text{(1)} 
+    \end{align*}
+    First we prove the forward implication. Suppose (1) is true. Let $\ep \in \R^+$ be arbitrary. Then by (1), there is a positive real $\delta$ such that $$(\forall x \in A)(x>\del \arr |f(x)-L|<\ep)$$ is true, and hence by universal transfer, we have $$(\forall x \in \hyp A)(x>\del \arr |f(x)-L|<\ep)$$ to be true. Now if there exists a positive unlimited $x \in \hyp A$, clearly $x>\del$ but then by our assumption we have $|f(x)-L|<\ep$. Since this holds for arbitrary real $\ep$, it must be the case that $f(x) \simeq L$. Next we prove the converse implication. Suppose $f(x) \simeq L$ for all positive unlimited $x \in \hyp A$ and such $x$ exists. Let $\ep \in \R^+$ be arbitrary. If $\del$ is any positive unlimited number, then for any $x \in \hyp A$, if $x>\del$ then $f(x) \simeq L$ by our assumption. Replacing $\del$ by existentially qunatified variable, this shows that the sentence $$(\exists \del \in \hyp \R^+) (\forall x \in \hyp A)(x>\del \arr |f(x)-L|<\ep)$$ is true, and thus by existential transfer, so is $$(\exists \del \in \R^+)(\forall x \in A)(x>\del \arr |f(x)-L|<\ep).$$ Since $\ep $ was arbitrary, we conclude (1).
+
+    (g) Essentially the same arguement as (f).
+  \end{proof}
+  
+  \begin{exercise}
+    (Section 7.4, II) Prove the following standard results. \\
+    (a) $\lim_{x \arr c} f(x)=L$ iff $\lim_{x \arr c^+} f(x)=L$ and $\lim_{x \arr c^-} f(x)=L$. \\
+    (b) $f$ is continuous at $c$ iff $\lim_{x \arr c} f(x)=f(c)$. \\
+    (c) if $\lim_{x \arr c} f(x)$ and $\lim_{x \arr c} g(x)$ exists, then \\
+    (i) $\lim [f(x)+g(x)]= \lim f(x)+\lim g(x)$ \\
+    (ii) $\lim [f(x) g(x)]= \lim f(x) \cdot \lim g(x)$ \\
+    (iii) $\lim [f(x)/g(x)]=\lim f(x)/\lim g(x)$, if $\lim g(x) \not = 0$.
+  \end{exercise}
+  \begin{proof} $ $ \\
+    (a) If $\lim_{x \arr c} f(x)=L$ then we must have $f(x) \simeq L$ for all $x \in A$ such that $x \simeq c$ and $x\not =c$. By universal transfer, law of trichotomy holds in hypereals, and so we have $x<c$ and $x>c$. This observation implies the desired result. Conversely if we have $\lim_{x \arr c^+} f(x)=L$ and $\lim_{x \arr c^-} f(x)=L$ then $f(x) \simeq L$ for any $x \simeq c$ such that $x>c$ and $x<c$ which, again by law of trichotomy, means $x \not =c$. This is enough to conclude $\lim_{x \arr c} f(x)=L$. \\
+    (b) Trivial by the definition. \\
+    (c) Suppose $x \simeq c$ with $x \not = c$. Then $f(x) \simeq \lim f(x)$ and $g(x) \simeq \lim g(x)$. Then \\
+    (i) $f(x)+g(x) \simeq \lim f(x) + \lim g(x)$. \\
+    (ii) $f(x) g(x) \simeq \lim f(x) \cdot \lim g(x)$. \\
+    (iii) Suppose further $\lim g(x) \not = 0$, then clearly $f(x)/g(x) = \lim f(x)/\lim g(x)$.
+  \end{proof}
+
+  \begin{exercise}
+    (Section 7.4, III)
+    Use infintisimal to discuss continuity of the following functions. \\
+    (a) $f_1(x)=\begin{cases}
+      \sin \frac{1}{x} & \text{ if } x \not =0 \\
+      0 & \text{ if } x=0
+        \end{cases}$ \\
+    (b) $f_2 (x)= \begin{cases}
+      x\sin \frac{1}{x} & \text{if } x \not = 0 \\
+      0 & \text{if } x=0
+    \end{cases}$ \\
+    (c) $f_3(x)= \begin{cases}
+      1 & \text{ if $x$ is rational }   \\
+      0 & \text{ if $x$ is rational }
+    \end{cases}.$ \\
+
+    (d) $f_4(x)= \begin{cases}
+      x & \text{ if $x$ is rational }   \\
+      -x & \text{ if $x$ is rational }
+    \end{cases}.$
+
+    (e) $f_5(x)= \begin{cases}
+      0 & \text{ if $x$ is irrational }   \\
+      \frac{1}{n} & \text{ if $x=\frac{m}{n} \in \Q$ in simplest form with $n\geq 1$ }
+    \end{cases}.$
+  \end{exercise}
+  \begin{proof} $ $ \\
+    (a) By uinversal transfer on $$(\forall n \in \N)\left(\sin \left((2n+1)\cdot \frac{\pi}{2}\right)=1 \text{ or } \sin \left((2n+1)\cdot \frac{\pi}{2}\right)=-1\right)$$ we have $$(\forall n \in \hyp \N)\left(\sin \left((2n+1)\cdot \frac{\pi}{2}\right)=1 \text{ or } \sin \left((2n+1)\cdot \frac{\pi}{2}\right)=-1\right)$$ to be true. However, since it means that there is an infintisimal, $x=\frac{1}{\frac{2}{(2n+1)\pi}}$, such that $f(x) \not =0$, it follows $f$ have discontinuity at $0$. \\
+
+    (b) $\sin 1/x$ is continuous at all points except $0$. However, in case of $x \sin 1/x$, if $x>0$ and $x \simeq 0$, clearly $x \sin 1/x \simeq 0$. If $x<0$ and $x \simeq 0$, again we get $x \sin 1/x \simeq 0$. Therefore, we have $\lim_{x \arr 0} x \sin 1/x=0=f_2(0)$. \\
+
+    (c) It is discontinous everywhere. By universal transfer of density of rationals in $\R$, we know $(\forall x,y \in \hyp \R)(x<y \arr (\exists q \in \hyp Q)(x<q<y))$ holds. Thus, we know there exists a hyperrational $q$ between $r$ and $r+\ep$, where $\ep$ is some infintisimal and $r$ is an irrational. Thus, $q \simeq r$. However, $1=f(q) \not \simeq f(r)=0$. Similarly, since each open interval $(a,b)$, where $a,b \in Q$, contain irrational. We have some irrational infinite close to each rational number. This implies that $f$ is discontinous on rational as well as irrational, and so all of reals.  \\
+
+    (d) For any non zero $x$, we clearly have the function to be discontinous at $x$ following the line of arguement of part (c). However, the case $x=0$ is interesting. For any irrational, $\ep$, infinitely close to $0$, we have $f(\ep)=-\ep \simeq 0 = f(0)$. Therefore, $f$ is continuous at $0$. \\
+
+    (e) The function is continous at irrational and discontinous at rationals. First we prove it is discontinous at rational points. Let $q \in \Q$. Assume further $q=\frac{m}{n}$ in its lowest form with $n \geq 1$. However since $n$ is a finite number, $\frac{1}{n}$ can never be infinitely close to $0$. Thus, $f(q) \not \simeq f(r)$ for any irrational $r$ infinitely close to $q$. Now we prove that $f$ is continous at irrational. Take any irrational $r$ and consider some hyperrational $q$ infinitely close to it. Assume further that $q=\frac{m}{n}$ in its lowest form and $n\geq 1$. Multiplying by $n$, we get $m \simeq rn$. It means $\sh(m-rn) \simeq 0$ but that would imply $m=rn$ since $m,n,r \in \R$. This is a contradiction. Thus, there is no $q$ infinitely close to $r$ which satisfy the given property and thus the function is vacously continous.
+  \end{proof}
+
+  \begin{exercise}
+    (Section 7.8, I)
+    Explain why the argument just given fails for intervals $(a,b), (a, b], (a,+\infty)$, $(-\infty, b)$, etc that are not closed.
+  \end{exercise}
+  \begin{proof}
+    In case of (semi)bounded open intervals, it fails because we can have a situation where $\sh(x) \notin (a,b]$ for some $x \in (a,b]$. Whereas in case of unbounded sequence, it fails because unlimited numbers do not have shadows.
+  \end{proof}
+
+  \begin{exercise}
+    (Section 7.8, II)
+    Show that $f(x)=\frac{1}{x}$ is not uniformly continuous on $(0,1)$.
+  \end{exercise}
+  \begin{proof}
+    Consider two positive infinitisimals $\ep$ and $\ep^2$. Clearly, $\ep \simeq \sh(\ep)=0=\sh(\ep^2) \simeq \ep^2$ but $f(\ep)=\frac{1}{\ep} \not = \frac{1}{\ep^2}=f(\ep^2)$. 
+  \end{proof}
+
+  \begin{exercise}
+    (Section 7.8, III)
+    If $f$ is uniformly continuous on $\R$ and $\la s_n: n \in \N \ra$ is a cauchy sequence, show that $\la f(s_n): n \in \N \ra$ is a cauchy sequence.
+  \end{exercise}
+  \begin{proof}
+    Consider some arbitrary unlimited hypernaturals $M$ and $N$. Since $\la s_n \ra$ is cauchy, we have $s_N \simeq s_M$, however, uniform continuity of $f$ further implies $f(s_N) \simeq f(s_M)$. This means $\la f(s_n) \ra$ is cauchy. 
+  \end{proof}
+
+  \begin{exercise}
+    (Section 7.8, IV)
+    Let the real function $f$ be monotonic on $[a,b]$ and suppose that for all real $r$ between $f(a)$ and $f(b)$ there exists a real $c \in [a,b]$ such that $f(c)=r$. Prove that $f$ is continuous on $[a,b]$.
+  \end{exercise}
+  \begin{proof}
+    Lets beging by assuming, without loss of generality, $f$ is an increasing function. For the sake of contradiction suppose $f$ is not continuous on $[a,b]$. This implies that there is some real $x$ such that for some $y$ infinitely close to it, we have $f(x) \not \simeq f(y)$. Assume further $x<y$ and consider some real $c$ between $f(x)$ and $\sh(f(y))$. By the intermidiate value property, it follows there is some $d \in [a,b]$ such that $f(d)=c$. Since $f$ is monotonic, we must have $x<d<y$. This implies $x \simeq d$. However, this is not possible since $x$ and $d$ are both unequal real numbers.
+  \end{proof}
+
+  \begin{exercise}
+    (Section 7.11, I)
+      If $f$ is a real function and $c \in \R$, verify in detail that $f(x)$ is defined for all $x \simeq c$ if and only if $f(x)$ is defined for all real $x$ in some open interval $(c-\ep, c+\ep)$ with real radius $\ep>0$.
+  \end{exercise}
+  \begin{proof}
+    We first prove the forward implication. Suppose $f(x)$ is defined for all $x \simeq c$. If $\ep$ is a positive infintisimal, then clearly $f(x)$ is defined for all $|x-c|<\ep$. This means that $$(\exists \ep \in \hyp \R^+)(\forall x \in \hyp \R)(|x-c|<\ep \arr f(x) \text{ is defined at } x)$$ holds true in $\hyp \R$ and so by existential transfer, $$(\exists \ep \in \R^+)(\forall x \in \R)(|x-c|<\ep\arr f(x) \text{ is defined at } x)$$ is true in $\R$. We proceed with the converse implication. Suppose $f(x)$ is defined for all real $x$ in some open interval $(c-\ep, c+\ep)$ with $\ep>0$. That means $$(\exists \ep \in \R^+)(\forall x \in \R)(|x-c|<\ep \arr f(x) \text{ is defined at } x) $$ is true in $\R$ and so by universal transfer, $$(\exists \ep \in \hyp \R^+)(\forall x \in \hyp \R)(|x-c|<\ep \arr f(x) \text{ is defined at } x) $$ holds in $\hyp \R$. In particular, this implies that $f(x)$ is defined for all $x$ infintely close to $c$.
+  \end{proof}
+
+  \begin{exercise}
+    (Section 7.11, II)
+    Let $f$ be a real function that is defined on some open neighbourhood of $c \in \R$. Show that if $f$ is constant on $\hal(c)$, then it is constant on some interval $(c-\ep, c+\ep) \subseteq \R$.
+  \end{exercise}
+  \begin{proof}
+    Suppose $f$ is constant on $\hal(c)$. This means that for any infinitesimal $\ep$, $|x-c|<\ep$ implies $f(x)$ is constant. Thus, $$(\exists \ep \in \hyp \R^+)(\forall x \in \hyp \R)(|x-c|<\ep \arr f(x) \text{ is constant})$$ holds in $\hyp \R$ and so by existential transfer, $$(\exists \ep \in \R^+)(\forall x \in \R)(|x-c<\ep \arr f(x) \text{ is constant})$$ holds in $\R$. This means that there is some open neighbourhood of $c$ in $\R$ where $f$ is constant.
+  \end{proof}
+
+\chapter{Differentiation}
+
+  \begin{exercise}
+    (Section 8.1, I)
+    Prove that derivative of $\sin x$ is $\cos x$ at real $x$.
+  \end{exercise}
+  \begin{proof}
+    Let $\ep$ be an infinitesimal. Then we have 
+    \begin{align*}
+      \frac{\sin(x+\ep)-\sin x}{\ep} &= \frac{\sin x \cos \ep +\cos x \sin \ep - \sin x}{ \ep} \\
+      &= \frac{\sin x(\cos \ep -1)+\cos x \sin \ep}{ \ep} \\
+      &= \sin x \cdot \frac{\cos \ep -1}{\ep} +  \cos x \cdot \frac{\sin \ep }{ \ep} \\
+      &\simeq \sin x \cdot 0 + \cos x \cdot 1 \\
+      &=\cos x.
+    \end{align*}
+  \end{proof}
+
+  \begin{exercise}
+    (Section 8.2)
+    If $f$ and $g$ are differentiable at $x \in \R$. Then \\
+    (a) $f+g$ is differentiable and $(f+g)^\p (x)=f^\p(x)+g^\p (x)$. \\
+    (b) If $g \not = 0$ then $f/g$ is differentiable and $(f/g)^\p = \frac{f^\p(x)g(x)-f(x)g^\p (x)}{g(x)^2}$.
+  \end{exercise}
+  \begin{proof}
+    (a) Let $\Del x$ be a non zero infinitesimal. Then we must have $f(x+\Del x)$ and $g(x+\Del x)$ to be defined because they are differentiable. So, $(f+g)(x+\Del x)=f(x+\Del)+g(x+\Del x)$. Thus, increment of $f+g$ at $x$ corresponding to $\Delta x$ is 
+      \begin{align*}
+      \Delta (f+g) &= (f+g)(x+\Del xl) - (f+g)(x) \\
+      &= f(x+\Del x) + g(x+\Del x) - f(x) -g(x) \\
+      &=(f(x)+\Del f)+(g(x)+\Del g) - f(x) -g(x) \\
+      &=\Del f + \Del g.
+      \end{align*}
+      It follows that 
+      \begin{align*}
+      \frac{\Del (f+g)}{\Del x} &= \frac{\Del f}{ \Del x} + \frac{\Del g}{\Del x} \\
+      &\simeq f^\p (x) +g^\p (x).
+      \end{align*}
+      Hence, by theorem 8.11, $(f+g)^\p (x) = f^\p(x)+g^\p (x)$. \\
+      
+    (b) Suppose $g \not =0$. Consider some non zero infinitesimal $\Del x$. Then we must have $f(x +\Del x)$ and $g(x + \Del x)$ to be    defined because they are differentiable. Also, we have $(f/g)(x+\Delta x)=f(x+\Delta x)/g(x + \Delta x)$. Thus, increment of $f/g$ at $x$ corresponding to $\Delta x$ is 
+      \begin{align*}
+      \Delta (f/g) &= (f/g)(x+\Delta x) - (f/g)(x) \\
+      &= \frac{f(x+\Delta x)}{g(x+ \Delta x)} -\frac{f(x)}{g(x)} \\
+      &= \frac{f(x) + \Delta f}{g(x) +\Delta g} - \frac{f(x)}{g(x)} \\
+      &= \frac{(f(x) + \Delta f)g(x) -f(x) (g(x) +\Delta g)}{g(x)(g(x)+\Delta g)} \\
+      &= \frac{\Delta f g(x) - f(x) \Delta g}{g(x)^2 + g(x) \Delta g }.
+      \end{align*}
+      It follows that 
+      \begin{align*}
+      \Del f / \Del x &= \frac{1}{\Del x} \cdot \frac{\Delta f g(x) - f(x) \Delta g}{g(x)^2 + g(x) \Delta g } \\
+      &= \frac{f^\p (x) g(x) - f(x) g^\p (x)}{g(x)^2+g(x) \Delta g} \\
+      & \simeq \frac{f^\p (x) g(x) - f(x) g^\p (x)}{g(x)^2} 
+      \end{align*}
+      because the fraction is finite and $\Delta g$ is infinitesimal.
+      \end{proof}
+
+    \begin{exercise}
+      (Section 8.5, I).
+      Prove Rolle theorem. That is Suppose $f$ is continuous at $[a,b]$ and differentiable at $(a,b)$. Then if $f(a)=f(b)=0$, then $f^\p(x)=0$ for some $x \in (a,b)$.
+    \end{exercise}
+    \begin{proof}
+      Firstly, notice that if $f$ acheives maxima at one of $a$ and $b$ and minima at the other, then clearly proposition is true because $f^\p (x)=0$ for all $x \in (a,b)$. In any other case, we would either have minima or maxima for some $ x \in (a,b)$ by extreme value theorem, and so by critical point theorem $f^\p (x)=0$.
+    \end{proof}
+
+    \begin{exercise}
+      (Section 8.5, II). Prove mean value theorem. That is for some $x \in (a,b)$, $$f^\p (x)=\frac{f(b)-f(a)}{b-a}.$$
+    \end{exercise}
+    \begin{proof}
+      Consider the function $h(x)=(f(b)-f(a))x-(b-a)f(x)$. Clearly, $h(b)=0=h(a)$. So by rolle theoerm, we know there is some $x\in (a,b)$ for which $(f(b)-f(a))-(b-a)f^\p(x)=h^\p(x)=0$. This implies $f^\p(x)=\frac{f(b)-f(a)}{b-a}$.
+    \end{proof}
+
+    \begin{exercise}
+      (Section 8.5, III).
+      If $f^\p$ is zero/positive/negative on $(a,b)$ then $f$ is constant/increasing/decreasing on $[a,b]$.
+    \end{exercise}
+    \begin{proof}
+      For $f^\p$ being zero on $(a,b)$. Consider some $c,d \in (a,b)$ such that $f(c) \not =f(d)$. Then by mean value theorem, we know there is some $x \in (c,d) \subseteq (a,b)$ with the property $f^\p(x) = \frac{f(d)-f(c)}{d-c} \not =0$. Hence, $f(c)=f(d)$ for any $c,d \in (a,b)$. In case derivative is positive on $(a,b)$, the function must be increasing clearly, otherwise we can argue in same sense as that of $f^\p$ being $0$ to argue that there is some $x$ for which $f^\p(x)$ is negative. We can prove for $f^\p$ being negative on $(a,b)$ implies $f$ is decreasing similarly.
+    \end{proof}
+
+    \begin{exercise}
+      (Section 8.8, I)
+      Show that if $f$ is smooth at $(a,b)$, then it is continuous at $(a,b)$.
+    \end{exercise}
+    \begin{proof}
+      Trivial by increment equation.
+    \end{proof}
+
+    \begin{exercise}
+      (Section 8.8, II)
+      Let $f$ be smooth at $(a,b)$. Given infinitesimal $\Delta x$, $\Delta y$ show that the difference between $\Delta f$ and $df$ is itself infinitely smaller than the infinitesimal distance $\Del l=\sqrt{\Del x^2+\Del y^2}$ between $(a,b)$ and $(a+\Del x, b+ \Del y)$, in  the sense that $$\frac{\Del f-df}{\Del l} \simeq 0.$$
+    \end{exercise}
+    \begin{proof}
+      Since $f$ is smooth, we have $\Del f -df=\ep \Del x + \del \Del y$ for some infinitesimal $\ep$ and $\del$. Thus, 
+      \begin{align*}
+        \frac{\Del f -df}{\Del l} &= \frac{\ep \Del x+\del \Del y}{\sqrt{\Del x^2+\Del y^2}} \\
+        &=\ep \cdot \frac{\Del x}{\sqrt{\Del x^2 + \Del y^2}}+ \del \cdot \frac{\Del y}{\sqrt{\Del x^2 + \Del y^2}} \\
+        &= \ep \cdot \frac{1}{\sqrt{1 + (\Del y^2/\Del x^2)}}+ \del \cdot \frac{1}{\sqrt{(\Del x^2/\Del y^2) + 1}}
+      \end{align*}
+      Which is clearly infinitesimal.
+    \end{proof}
+
+    \begin{exercise}
+      (Section 8.9, I)
+      Verify that the Maclaurin series for $e^x$ converges to $e^x$ at any $x \in \R$ by proving that the remainder $R_n(x)$ is infintisimal when $n$ is unlimited.
+    \end{exercise}
+    \begin{proof}
+      Let $x \in \R$. Applying transfer on lagrange form of the remainder, we see that $$(\forall n \in \hyp \N)\left(\exists c \in \hyp \R \right)(R_n(x)=\frac{e^{n+1}(c)}{(n+1)!} \cdot x^{n+1})$$ holds in $\hyp \R$ where $0<c<x$. Since $e^{n+1}(c)=e^c$, we have $e^{n+1}(c)$ to be finite while $\frac{x^{n+1}}{(n+1)!}$ to be infinitesimal for unlimited $n$. This implies $R_n(x)$ is infinitesimal.
+    \end{proof}
+
+    \begin{exercise}
+      (Section 8.10, I)
+      There are forms for the taylor remainder other than Lagrange's. One of these is $$R_n(x)=\frac{f^{(n)}(c)-f^{(n)}(a)}{(c-a)(n+1)!} \cdot (x-a)^{n+1}$$ for some $c$ between $a$ and $x$ when $f^{(n+1)}$ exists between $a$ and $x$. Prove the n-th order increment equation without using the hypothesis of continuity of $f^{(n)}$.
+    \end{exercise}
+    \begin{proof}
+      Applying transfer principle, we see there must exits some $c \in \hyp \R$ between $a$ and $x$ so that for any natural $n$, 
+      \begin{align*}
+        R_n(x)=\frac{f^{(n)}(c)-f^{(n)}(a)}{(c-a)(n+1)!} \cdot (x-a)^{n+1} \tag{1}
+      \end{align*} 
+      This implies, for any infinitesimal $\Del x$, there is some $c \in \hyp \R$ with $x<c<x+\Del x$ so that (1) holds. Consequently, we have
+      \begin{align*}
+        f(x+\Del x) &= p_{n-1}(x+\Del x)+R_{n-1}(x+\Del x) \\
+        &=\sum_{k=0}^{n-1} \frac{f^{(k)}(x)}{k!}(\Del x)^k + \frac{f^{(n-1)}(c)-f^{(n-1)}(a)}{(c-x)n!} \cdot (\Del x)^{n} \\
+        &=\sum_{k=0}^n \frac{f^{(k)}(x)}{k!}(\Del x)^k +\frac{(\Del x)^k}{n!} \cdot \left(\frac{f^{(n-1)}(x)-f^{n-1}(c)}{x-c} - f^n(x) \right) 
+      \end{align*}
+      where we know the latter term is infinitesimal because the derivative $f^{(n)}(x)$ is infinitely close to $\frac{f^{(n-1)}(x)-f^{n-1}(c)}{x-c}$ given $x \simeq c$. Hence, letting $\ep=\frac{1}{n!} \cdot \left(\frac{f^{(n-1)}(x)-f^{n-1}(c)}{x-c} - f^n(x) \right) $, the desired result follows.
+    \end{proof}
+
+    \begin{exercise}
+      (Section 8,12, I)
+      Let $f$ be differentiable and have $f^\p$ continous on $(a,b) \subseteq \R$. Let $x$ be well inside $\hyp (a,b)$ and $\Del x \simeq 0$. Show that the incremental equation holds for any hyperreal well inside $\hyp (a,b)$, that is, $f(x+\Del x)=f(x)+f^\p(x) \Del x+\ep \Del x$.
+    \end{exercise}
+    \begin{proof}
+      We claim the following result is true. 
+      \begin{theorem1}
+        Let $f$ be differentiable and $f^\p$ be continuous on $(a,b)$. Then for any hyperreal $x$ well inside $\hyp (a,b)$ and $\Del x \simeq 0$, we have $$f^\p(x)=\frac{f(x+\Del x)-f(x)}{\Del}.$$
+      \end{theorem1}
+      Before we discuss the proof of it, we see that if the theorem-1 is true then the desired result easily follow because we would have $f^\p(x)+\ep=\frac{f(x+\Del x)-f(x)}{\Del}$, multiplying which by $\Del x$ and rearranging proves the incremental equation. \\
+
+      We begin the proof by noticing that if $f$ is differentiable on $(a,b)$ then so it is on $(\sh (x), \sh(x)+\Del x)$. Similarly, $f^\p$ is also continuous on $(\sh (x), \sh(x)+\Del x)$. Applying the transfered mean value theorem on $f$ and the interval $(\sh (x), \sh(x)+\Del x)$, we see that $$f^\p(y)=\frac{f(\sh(x)+\Del x)-f(\sh(x))}{\Del x}$$ holds for some $y \in (\sh (x), \sh(x)+\Del x)$. However, since $f$ and $f^\p$ are continuous on $(a,b)$ along with $y \simeq x$ and $\sh(x) \simeq x$, we have 
+      $$f^\p(x) \simeq f^\p(y)= \frac{f(\sh(x)+\Del x)-f(\sh(x))}{\Del x} \simeq \frac{f(x+\Del x)-f(x)}{\Del x}$$ to be true. This concludes the proof of theorem-1. Hence, the following corollary holds. 
+      \begin{corollary1.1}
+        If $f$ is differentiable and $f^\p$ be continuous on $(a,b)$ then $f(x+\Del x)=f(x)+f^\p(x) \Del x+\ep \Del x$.
+      \end{corollary1.1}
+    \end{proof}
+
+    \begin{exercise}
+      (Section  8.12, II)
+      Let $$f(x) = \begin{cases}
+        x^2 \sin\frac{1}{x} & \text{ if } x \not =0 \\
+        0 & \text{ if } x=0.
+      \end{cases}$$
+      (a) Prove that $f^\p$ exists at $0$ by is not continous there. \\
+      (b) Let $x=1/(2\pi N)$ with $N$ unlimited. Show that there is an infinitesimal $\Del x$ such that incremental equation fails for any $\ep \simeq 0$ at $f(x+\Del x)$.
+    \end{exercise}
+
+    \begin{proof} $ $ \\
+      (a) We start by noticing that for any infinitesimal $\ep$, 
+      \begin{align*}
+        \frac{f(\ep)-f(0)}{\ep} &=\frac{\ep^2 \sin (1/\ep)}{\ep}  \\
+        &= \ep \cdot sin(1/\ep)
+      \end{align*}
+      Which is clearly infinitesimal because $\sin(1/\ep)$ is limited. However, $f^\p$ is not continous at $x=0$. To see that consider the infinitesimal $\ep=1/(2 \pi N)$ where $N$ is unlimited natural. Since $f^\p(x)=2x \cdot \sin 1/x - \cos 1/x$ when $x\not =0$, we have 
+      \begin{align*}
+        f^\p (\ep) &= 2\ep \cdot \sin \frac{1}{\ep}-\cos \frac{1}{\ep} \\
+        &=2 \frac{1}{2 \pi N} \cdot \sin \frac{1}{1/(2 \pi N)} - \cos \frac{1}{1/(2 \pi N)} \\
+        &=2 \frac{1}{2\pi N} \cdot \sin 2 \pi N - \cos 2 \pi N \\
+        &= 0-\cos 2 \pi N \\
+        &=-\cos (2\pi N) \\
+        &=-1 \\
+        &\not \simeq 0 \\
+        &=f^\p(0)
+      \end{align*}
+      Therefore, we have $0 \simeq \ep$ but $f^\p(0) \not \simeq f^\p(\ep)$ proving that $f^\p$ is not continuous at $x=0$. \\
+
+      (b) Let $N$ be unlimited natural and $x=1/(2 \pi N)$. Consider $\Del x=-1/(2 \pi N)$ and any infinitesimal $\ep$. Then we have
+      \begin{align*}
+        f(x)+f^\p (x) \Del x+\ep \Del x &=\left(\frac{1}{2 \pi N}\right)^2 \cdot \sin \frac{1}{1/(2 \pi N)}-\cos (2 \pi N) \Del x + \ep \Del x \\
+        &=0+\Del x (-\cos (2\pi N)+\ep) \\
+        &=\Del x (\ep -1) \\
+        & \not = 0 \\
+        &=f(x+\Del x)
+      \end{align*}
+    \end{proof}
+
+\chapter{The Riemann Integral}
+    \begin{exercise}
+      (Section 9.1, I). Monotonic Functions. \\
+      Prove that theorem 9.1.1 holds for monotonic function as well. That is if $f$ is monotonic on $[a,b]$ then for any positive infinitesimal $\Del x$, $L_a^b (f, \Del x) \simeq U_a^b (f, \Del x)$.
+    \end{exercise}
+    \begin{proof}
+      Without loss of generality assume $f$ is non decreasing function. We begin our proof by observing that for any $\Del x \in \R^+$, we have 
+      \begin{align*}
+        U_a^b (f, \Del x)-L_a^b (f, \Del x) &= \sum_{i=1}^n M_i \Del x_i-\sum_{i=1}^n m_i \Del x_i \\
+        &= \sum_{i=1}^n (M_i-m_i) \Del x_i \\
+        &= \sum_{i=1}^n (M_i-m_i) \Del x &\text{(the partitions have equal width)} \\
+        &= (f(b)-f(a)) \Del x+\sum_{i=1}^n (M_i-m_{i+1}) \Del x & \text{($f$ is non-decreasing)} \\
+        &\leq (f(b)-f(a)) \Del x. & \text{(summation is non positive since $M_i \leq m_{i+1}$)}
+      \end{align*}
+      By transfer, we know it holds in $\hyp \R$, that is, for any $\Del x \in \hyp \R$, $U_a^b-L_a^b \leq (f(b)-f(a)) \Del x$ must be true. In particular if $\Del x$ is any positive infinitesimal, $U_a^b \simeq L_a^b$.
+    \end{proof}
+
+    \begin{exercise}
+      (Section 9.2, I) 
+      For each (standard) $n \in \N$, let $U_a^b (f,n), L_a^b (f,n), S_a^b (f,n)$ be the upper, lower, and ordinary reimann sums for the partition determined by the number $\Del x=\frac{b-a}{n}$. Prove that if $n \in \hyp \N$ is unlimited, then $$L_a^b (f,n) \simeq S_a^b (f,n) \simeq U_a^b (f,n).$$ Show how the definition and proof of existence for the reiemann integral could be developed just using these functions of (hyper)natural numbers.
+    \end{exercise}
+    \begin{proof}
+      Since $\Del x=\frac{b-a}{n}$ is infinitesimal for unlimited $n$, we can directly apply theorem 9.2.1 to conclude $L_a^b (f,n) \simeq U_a^b (f,n)$ and consequently, $L_a^b (f,n) \simeq S_a^b (f,n) \simeq U_a^b (f,n)$ by the transfer of the inequality $L_a^b (f,P) \leq S_a^b (f,P) \leq U_a^b (f, P)$. Furthermore, because $\Del x$ is infinitesimal, we can Essentially use the same arguement to define and justify existence of riemann integrals.
+    \end{proof}
+
+    \begin{exercise}
+      (9.3, I)
+      Derove proofs for the other properties of the integral listed above. That is \\
+      (a) $\int_a^b c f(x) dx= c \int_a^b f(x) dx$. \\
+      (b) $\int_a^b f(x)+g(x) dx= \int_a^b f(x) dx + \int_a^b g(x) dx$. \\
+      (c) $\int_a^b f(x) dx \leq \int_a^b g(x) dx$ if $f(x) \leq g(x)$ on $[a,b]$. \\
+      (d) $m(b-a) \leq \int_a^b f(x) dx \leq M (b-a)$ if $m \leq f(x) \leq M$ on $[a,b]$.
+    \end{exercise}
+    \begin{proof} $ $ \\
+      (a) For any $\Del x \in \R$, we have 
+        \begin{align*}
+          S_a^b (cf, \Del x) &= \sum_{i=1}^n cf(x_{i-1}) \cdot \Del x \\
+          &=c \cdot \sum_{i=1}^n f(x_{i-1}) \Del x \\
+          &= c \cdot S_a^b (f,\Del x).
+        \end{align*}
+        By transfer, it also holds in $\hyp R$. In particular, if $\Del x$ is any infinitesimal, 
+        \begin{align*}
+          \int_a^b cf(x)dx &= \sh \left( S_a^b (cf, \Del x)\right) \\
+          &\simeq S_a^b (cf, \Del x) \\
+          &= c \cdot S_a^b (f, \Del x) \\
+          &\simeq c \cdot \sh \left( S_a^b (f, \Del x)\right) \\
+          &=c \cdot \int_a^b f(x) dx.
+        \end{align*}
+         Thus, $\int_a^b cf(x)dx \simeq c \cdot \int_a^b f(x) dx$. However, we must have $\int_a^b cf(x)dx = c \cdot \int_a^b f(x) dx$ because they both are real. This concludes the proof.  \\
+
+      (b) For any $\Del x \in \R$, the following holds. 
+        \begin{align*}
+          S_a^b (f+g, \Del x) &= \sum_{i=1}^n (f+g)(x_{i-1}) \cdot \Del x \\
+          &=\sum_{i=1}^n f(x_{i-1}) \cdot \Del x + \sum_{i=1}^n g(x_{i-1}) \cdot \Del x \\
+          &= S_a^b (f, \Del x) + S_a^b (g, \Del x).
+        \end{align*}
+        Thus, by transfer, it also holds in $\hyp \R$. If $\Del x$ is any infinitesimal, we have 
+        \begin{align*}
+          \int_a^b f(x)+g(x) dx &= \sh(S_a^b (f+g, \Del x)) \\
+          &\simeq S_a^b(f+g, \Del x) \\
+          &=S_a^b (f, \Del x) + S_a^b (g, \Del x) \\
+          &\simeq \sh(S_a^b (f, \Del x) + S_a^b (g, \Del x)) \\
+          &= \sh( S_a^b (f, \Del x))+ \sh(S_a^b (g, \Del x) ) \\
+          &=\int_a^b f(x) dx + \int_a^b g(x) dx.
+        \end{align*}
+        Hence, $\int_a^b f(x)+g(x) dx = \int_a^b f(x) dx + \int_a^b g(x) dx$ since they both are real numbers. \\
+
+        (c) Suppose $f(x) \leq g(x)$ for all $x \in [a,b]$. It is easy to see that $$S_a^b(f, \Del x)=\sum_{i=1}^n f(x_{i-1}) \Del x \leq \sum_{i=1}^n g(x_{i-1}) \Del x=S_a^b (g, \Del x),$$
+        and so by transfer, it holds in $\hyp \R$. Let $\Del x$ be an infinitesimal. Notice that 
+        \begin{align*}
+          \int_a^b f(x) dx &=\sh(S_a^b(f, \Del x))  \\
+          &\simeq S_a^b (f, \Del x) \\
+          & \leq S_a^b (g, \Del x) \\
+          &\simeq \sh(S_a^b (g, \Del x)) \\
+          &=\int_a^b g(x) dx.
+        \end{align*}
+        Hence, $\int_a^b f(x) dx \leq \int_a^b g(x) dx$. \\
+
+        (d) Suppose $m\leq f(x) \leq M$ on $[a,b]$. Then we must have $$m(b-a)=m \cdot \sum_{i=1}^n \Del x=\sum_{i=1}^n m \Del x \leq \sum_{i=1}^n f(x_{i-1}) \Del x \leq \sum_{i=1}^n M \Del x =M \cdot \sum_{i=1}^n \Del x=M (b-a)$$ for any $\Del x \in \R$. Therefore, the inequalitiy also holds in $\hyp \R$. In particular, letting $\Del x$ to be infinitesimal, we see that $$m(b-a) \leq \int_a^b f(x) dx \leq M(b-a).$$
+    \end{proof}
+
+    \begin{exercise}
+      (Section 9.5, I) Average Function values. \\
+       Let $f$ be continous on $[a,b] \subseteq \R$. Define the "sample average" function $Av$ by putting, for each $n \in \N$, $$Av(n)=\frac{f(x_0)+\cdots + f(x_{n-1})}{n},$$
+       where $x_i=a+\frac{i(b-a)}{n}$. \\ 
+       Prove that if $N \in \hyp \N$ is unlimited, then $$Av(N) \simeq \frac{1}{b-a} \int_a^b f(x)dx$$ (ie, the average value of $f$ on $[a,b]$ is given by the shadow of $Av(N)$).
+    \end{exercise}
+    \begin{proof}
+      Let $n \in \N$ be arbitrary. Then we see that 
+      \begin{align*}
+        Av(n) &= \frac{\sum_{i=1}^n f(x_{i-1})}{n} \\
+        &= \frac{\sum_{i=1}^n f(x_{i-1})}{n} \cdot \frac{\Del x}{ \Del x} \\
+        &=\frac{\sum_{i=1}^n f(x_{i-1}) \Del x}{n \cdot \Del x} \\
+        &= \frac{\sum_{i=1}^n f(x_{i-1}) \Del x}{ \sum_{i=1}^n \Del x} \\
+        &= \frac{\sum_{i=1}^n f(x_{i-1}) \Del x}{ \sum_{i=1}^n \Del x_i - \Del x_i} \\
+        &=\frac{\sum_{i=1}^n f(x_{i-1}) \Del x}{b-a} \\
+        &=\frac{1}{b-a} \cdot \sum_{i=1}^n f(x_{i-1}) \Del x \\
+        &=\frac{1}{b-a} \cdot S_a^b (f, n).
+      \end{align*}
+      Thus, by transfer, it follows that for any $n \in \hyp \N$, we must have $Av(N)=\frac{1}{b-a} \cdot S_a^b (f, n)$. In particular, if $N$ is any unlimited hypernatural
+      \begin{align*}
+        Av(N) &=\frac{1}{b-a} \cdot S_a^b (f,N) \\
+        &\simeq \sh \left( \frac{1}{b-a} \cdot S_a^b (f,N) \right) \\
+        &= \sh \left( \frac{1}{b-a} \right) \cdot \sh( S_a^b (f,N)) \\
+        &=\frac{1}{b-a} \cdot \int_a^b f(x) dx.
+      \end{align*}
+      This proves the desired conclusion.
+    \end{proof}
+
+\chapter{Topology of the Reals} 
+
+    \begin{exercise}
+      (Section 10.2, I)
+      Prove that the collection of topologically closed sets is closed under finite union and arbitrary intersections.
+    \end{exercise}
+    \begin{proof}
+      First we will demonstrate that it is closed under finite union. Let $A_1, \cdots, A_n$ be closed. We wish to show that $\bigcup_{i=1}^n A_i$ is closed. Consider some $x \in \R$ such that $x \simeq r \in \hyp \left(\bigcup_{i=1}^n A_i \right)$. Assume $x \notin \bigcup_{i=1}^n A_i$. This would mean $x \in \left( \bigcup_{i=1}^n A_i \right)^c=\bigcap_{i=1}^n A_i^c$. So $r \in \hyp\left( \bigcup_{i=1}^n A_i \right)^c$ because all of $A_i^c$'s are open and $x \simeq r$. A contradiction. So we must have $x \in  \bigcup_{i=1}^n A_i$. Thus proving $\bigcup_{i=1}^n A_i$ is closed. \\
+      Now let $\{A_i: i \in I\}$ be some collection of closed sets. Consider some $x \simeq r \in \hyp \left(\bigcap_{i \in I} A_i \right)$ and suppose $x \notin \bigcap_{i \in I} A_i$. Thus, $x \in \left(\bigcap_{i \in I} A_i \right)^c=\bigcup_{i \in I} A_i^c$. Since it is open being arbitrary union of open sets, we have $r \in \hyp\left(\bigcap_{i \in I} A_i\right)^c$ which is a contradiction. Therefore, $x \in \bigcap_{i \in I} A_i$
+    \end{proof}
+
+    \begin{exercise}
+      (Section 10.2, II) 
+      Show that the proof of 10.2.1 (2) does not work for infinite intersection by showing that $$\hyp \left( \bigcap_{n \in \N} \left(-\frac{1}{n}, \frac{1}{n}\right) \right) \not = \bigcap_{n \in \N} \hyp \left( - \frac{1}{n}, \frac{1}{n} \right).$$
+    \end{exercise}
+    \begin{proof}
+      Intutively, for any $n \in \N$, it can be easily seen that $\hyp \left(- \frac{1}{n}, \frac{1}{n}\right)$ contains infintisimal numbers. So we must have $\bigcap_{n \in \N} \hyp \left(- \frac{1}{n}, \frac{1}{n}\right)$ to be equal to set of infinitesimal. However, the only infinitesimal which is a real number is $0$, so $\bigcap_{n \in N} \left(-\frac{1}{n}, \frac{1}{n}\right)$ must be $\{0\}$ which is enough to prove the desired result. We will now formalise our intutive arguments first by proving $\hyp \left( \bigcap_{n \in N} \left(-\frac{1}{n}, \frac{1}{n}\right) \right)=\{0\}$ and then proving $\bigcap_{n \in \N} \hyp \left( - \frac{1}{n}, \frac{1}{n} \right)=\mathbb{I}$ where $\I$ is set of infinitesimal (or in other words, $\I=\hal(0)$). \\
+
+      \begin{theorem1}
+        $\hyp \left( \bigcap_{n \in \N} \left(-\frac{1}{n}, \frac{1}{n}\right) \right)=\{0\}$ 
+      \end{theorem1}
+      We will prove this claim by arguing that $\bigcap_{n \in \N} \left(- \frac{1}{n}, \frac{1}{n} \right)=\{0\}$ and since extension of finite set equals to the set, the result would follow. It is easy to see $0 \in \bigcap_{n \in \N} \left(- \frac{1}{n}, \frac{1}{n} \right)$. To prove it must only be $0$, let $r$ be some non-zero real number such that $r \in \bigcap_{n \in \N} \left(- \frac{1}{n}, \frac{1}{n} \right)$. That means the inequalitiy $-1/n<r<1/n$ hold for any natural $n$. Furthermore, without loss of generality, assume $r$ is positive. By archimedean property, we know there is some $n \in \N$ so that $1/r<n$. This implies that $r>1/n$. A contradiction. We can derive similar contradiction in case $r$ is negative real number. Thus, $\bigcap_{n \in \N} \left(- \frac{1}{n}, \frac{1}{n} \right)=\{0\}$. Therefore, $\hyp \left( \bigcap_{n \in N} \left(-\frac{1}{n}, \frac{1}{n}\right) \right)=\bigcap_{n \in \N} \left(- \frac{1}{n}, \frac{1}{n} \right)=\{0\}$ because $\bigcap_{n \in \N} \left(- \frac{1}{n}, \frac{1}{n} \right)$ is finite. 
+
+      \begin{theorem2}
+        $\bigcap_{n \in \N} \hyp \left( -\frac{1}{n}, \frac{1}{n} \right) = \I$, where $I$ is the set of infinitesimals.
+      \end{theorem2}
+      We are going to prove this theorem by standard inclusion arguement. Let $x \in \bigcap_{n \in \N} \hyp \left( -\frac{1}{n}, \frac{1}{n} \right)$. This means that for any $n \in \N$, we have $x$ to be in $\hyp \left( -\frac{1}{n}, \frac{1}{n} \right)$, that is $x \in \hyp \R$ and $-1/n<x<1/n$. We wish to show that $x \simeq 0$. Suppose not. Then it follows that $-1/n <\sh(x) \simeq x<1/n$ for all $n \in \N$. This contradicts Theorem-1. Hence, $x$ must be infinitesimal i.e. $x \in \I$. Conversely, Let $x \in \I$. Then it is readily seen that $-1/n<x<1/n$ for any $n \in \N$ because $-1/n$ and $1/n$ are real numbers. So $x \in \hyp \left( -\frac{1}{n}, \frac{1}{n} \right)$ for each natural $n$. This is sufficient to conclude theorem-2. \\
+
+      Finally, theorem-1 and theorem-2 together implies $\hyp \left( \bigcap_{n \in \N} \left(-\frac{1}{n}, \frac{1}{n}\right) \right) \not = \bigcap_{n \in \N} \hyp \left( - \frac{1}{n}, \frac{1}{n} \right)$. As desired.
+    \end{proof}
+
+    \begin{exercise}
+      (Section 10.3, I)
+      Prove that in $\R$ a closed subset of a compact set is compact.
+    \end{exercise}
+    \begin{proof}
+      Let $A$ be some real compact set. Consider some closed subset, $B$, of $A$. It is easy to see that $B$ is bounded because we know $A$ is from heine-borel. Therefore, applying heine borel again, we see that $B$ must be compact.
+    \end{proof}
+
+    \begin{exercise}
+      (Section 10.5, I)
+      Show that: \\
+      (a) any $S$-open set is real open. \\
+      (b) each $S$-open set is union of halos, but a union of halos is not necessarily $S$-open. \\
+      (c) no real radius neighbourhood can be $S$-open.
+    \end{exercise}
+    \begin{proof} $ $ \\
+      Consider some $S$-interval $((r-\ep,r+\ep))$. Let $s \in ((r-\ep, r+\ep))$ and define $d=\frac{\sh \min \{|(r-\ep)-s|, |(r+\ep)-s|\}}{2} $. It is easy to see that the interval $(s-d, s+d)$ does not contain any point infinitely close $r-\ep$ and $r+\ep$ because $|r-\ep-s|, |r+\ep-s|>d$. Therefore, $S=\bigcup_{s \in S} (s-d, s+d)$ proving $S$-interval is $R$-open, and consequently $S$-open set is $R$-open. \\
+
+      (b) The former part follows from definition. For latter, consider $\hal(2) \cup \hal(3)$. It is easy to see $\hal(2) \cup \hal(3)$ can not be written as union of $S-$ open sets because only way to do that would be to show $\hal(2)$ and $\hal(3)$ are both $S$-open. This is clearly not the case because any subinterval of $\hal(2)$ and $\hal(3)$ contains point infinitely close to end points. \\
+
+      (c) Consider some real radius neighbourhood $(a,b)$. To write it as union of $S$-open set, we would require $\hal(a)$ to be subset of one of the intervals. However, this is not possible because $a \in hal(a)$ but $a \notin (a,b)$.
+    \end{proof}
+
+    \begin{exercise}
+      (Section 10.5, II)
+      Let $A$ be an open subset of $\R$. \\
+      (a) Show that $\hyp A$ is the interval-open in $\hyp \R$. \\
+      (b) Suppose $A$ is the union of a sequence $\la A_n: n \in \N \ra$ of pairwsie disjoint open intervals in $\R$, with the length of $A_n$ being less than $1/n$. Use transfer to show that some elements of $\hyp A$ is infinitely close to something not in $\hyp A$. Deduce that $\hyp A$ is not S-open. \\
+      (c) Show further that $\hyp A$ contains a point that does not belong to any real-radius neighbourhood that is included in $\hyp A$. Hence, deduce the stronger result that $\hyp A$ is non real-open.
+    \end{exercise}
+    \begin{proof} $ $ \\
+
+      (a) Consider some open set $A=\bigcup_{i \in I} (a_i,b_i)$ of $\R$. Extending it we see $A^*=\hyp \left( \bigcup_{i \in I} (a_i, b_i) \right)=\bigcup_{i \in  \hyp I} \hyp (a_i, b_i)$ which is union of intervals in $\hyp \R$ i.e. interval open. \\
+
+      (b) Let $A_n=(a_n, b_n)$ denote a term in the sequence, where $n \in \mathbb{N}$. Consider $x=\frac{bn+an}{2} \in A_n$. Clearly, $|x-b_n|=\left|\frac{b_n-a_n}{2} \right|<\frac{1}{2n}$. By transfer, this inequalitiy $\hyp \R$ as well. That is for any $A_n=(a_n, b_n)$, where $n \in \hyp \N$, there exists $x \in A_n$ such that $|x-b_n|<\frac{1}{2n}$. In particular, if $N$ is unlimited natural, there is some $x \in A_N$ such that $|x-b_N|<\frac{1}{2n}$. That is $x \simeq b_N$, however, by definition $b_N \notin A_N=(a_N, b_N)$. Furthermore, $b_n$ can not be in any other term of the sequence either because otherwise it would contradict the hypothesis that all terms are pairwsie disjoint open intervals. Consequently, $\hyp A$ is not $S$-open because there are elements $x \in \hyp A$ such that $\hal(x) \not \subseteq \hyp A$.
+
+      (c) Let $A_n=(a_n, b_n)$ denote a term of the sequence, where $n$ is an unlimited natural. Consider $x=\frac{b_n-a_n}{2}$. Clearly $x \in A_n \subseteq \hyp A$ but it is not contained in any real neighbourhood $y$ of $\hyp A$. For if it is the neighbourhood would also contain $\hal(x)$, in particular $b_n$ which is a contradiction.
+    \end{proof}
+
   
 
 \end{document}
